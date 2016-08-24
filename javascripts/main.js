@@ -8,8 +8,8 @@ var test1 = null;
 function initAudio(index) {
 
 	var audioSource = index.value;
-	var audioRecorder = null;
 	var idconfirm = index.parentNode;
+	var audioRecorder = null;
 	
 	function gotStream(stream) {
 		
@@ -27,7 +27,7 @@ function initAudio(index) {
 		analyserNode.fftSize = 2048;
 		inputPoint.connect( analyserNode );
 		
-		var audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
+		audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
 		// speak / headphone feedback initial settings
 		
 		inputPoint.connect(audioContext.destination);
@@ -37,6 +37,7 @@ function initAudio(index) {
 	var constraints = {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
 	};
+	
 	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
 }
 
