@@ -28,8 +28,10 @@ function toggleRecording( e ) {
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 		});
 		e.parentNode.src.exportWAV( function(blob) {
-			Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
-    			recIndex++;
+    			var url = (window.URL || window.webkitURL).createObjectURL(blob);
+    			var link = document.getElementById("save");
+    			link.href = url;
+    			link.download = "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" || 'output.wav';
 		});
 	} else {
 		// start recording  
