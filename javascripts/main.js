@@ -27,12 +27,7 @@ function toggleRecording( e ) {
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 		});
-		e.parentNode.src.exportWAV( function(blob) {
-    			var url = (window.URL || window.webkitURL).createObjectURL(blob);
-    			var link = document.getElementById("save");
-    			link.href = url;
-    			link.download = "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" || 'output.wav';
-		});
+		e.parentNode.src.exportWAV(doneEncoding);
 	} else {
 		// start recording  
 		if (!e.parentNode.src)
