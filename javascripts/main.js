@@ -86,7 +86,8 @@ function gotDevices(deviceInfos) {
 function changeAudioDestination(event) {
 	
 	var InputSelector = event.path[0];
-	initAudio(InputSelector);
+	var thanks = initAudio(InputSelector);
+	console.log(thanks);
 }
 
 function handleError(error) {
