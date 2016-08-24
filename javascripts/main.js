@@ -78,7 +78,7 @@ function initAudio(index) {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
 	};
 	
-	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(function() { console.log(audioRecorder)).catch(handleError);
+	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(function() { console.log(audioRecorder)}).catch(handleError);
 	console.log(audioRecorder);
 	recordCloud.save = audioRecorder;
 	idconfirm.appendChild(recordCloud);
