@@ -5,34 +5,34 @@ function recordTest () {};
 //var audioRecorder = null;
 var test1 = null;
 
-function gotStream(stream) {
-	
-	console.log(stream);
-	// Create an AudioNode from the stream.
-	var realAudioInput = audioContext.createMediaStreamSource(stream);
-	var audioInput = realAudioInput;
-	
-	var inputPoint = audioContext.createGain();
-	inputPoint.gain.value = 1.0;
-	audioInput.connect(inputPoint);
-	//audioInput = convertToMono( input );
-	
-	var analyserNode = audioContext.createAnalyser();
-	analyserNode.fftSize = 2048;
-	inputPoint.connect( analyserNode );
-	
-	var audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
-	// speak / headphone feedback initial settings
-	
-	inputPoint.connect(audioContext.destination);
-	return audioRecorder;
-}
-
 function initAudio(index) {
 
 	var audioSource = index.value;
+	var audioRecorder = null;
 	var idconfirm = index.parentNode;
-	console.log(idconfirm);
+	
+	function gotStream(stream) {
+		
+		console.log(idconfirm);	
+		// Create an AudioNode from the stream.
+		var realAudioInput = audioContext.createMediaStreamSource(stream);
+		var audioInput = realAudioInput;
+		
+		var inputPoint = audioContext.createGain();
+		inputPoint.gain.value = 1.0;
+		audioInput.connect(inputPoint);
+		//audioInput = convertToMono( input );
+		
+		var analyserNode = audioContext.createAnalyser();
+		analyserNode.fftSize = 2048;
+		inputPoint.connect( analyserNode );
+		
+		var audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
+		// speak / headphone feedback initial settings
+		
+		inputPoint.connect(audioContext.destination);
+		return audioRecorder;
+	}
 	
 	var constraints = {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
