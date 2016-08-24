@@ -80,9 +80,10 @@ function initAudio(index) {
 	
 	navigator.mediaDevices.getUserMedia(constraints)
 	.then(gotStream)
-	.then(function() { console.log(audioRecorder)})
-	.then(function() { recordCloud.save = audioRecorder; })
-	.then(function() { idconfirm.appendChild(recordCloud)})
+	.then(function() { 
+		console.log(audioRecorder);
+		idconfirm.save = audioRecorder;
+	})
 	.catch(handleError);
 }
 
