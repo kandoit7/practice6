@@ -20,6 +20,7 @@ function toggleRecording( e ) {
 	console.log(e);
 	console.log(e.parentNode);
 	console.log(e.parentNode.src);
+	var audioRecorder = e.parentNode.src;
 	var imgchange = e;
 	if (e.classList.contains("recording")) {
 		// stop recording
