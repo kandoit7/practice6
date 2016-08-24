@@ -35,6 +35,8 @@ function toggleRecording( e ) {
 	console.log(e.parentNode);
 	var loadCloud = e.parentNode;
 	var audioRecorder = loadCloud.save;
+	
+	console.log(audioRecorder);
 	var imgchange = e;
 	if (e.classList.contains("recording")) {
 		// stop recording
