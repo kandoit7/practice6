@@ -54,15 +54,6 @@ function recordTest () {
 		}
 	}
 	
-	recordTest.initAudio = function(index) {
-		var audioSource = index.value;
-		var constraints = {
-			audio: {deviceId: audioSource ? {exact: audioSource} : undefined}
-		};
-		
-		navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
-	}
-	
 	recordTest.gotStream = function(stream) {
 		
 		var realAudioInput = audioContext.createMediaStreamSource(stream);
@@ -82,6 +73,15 @@ function recordTest () {
 		inputPoint.connect(audioContext.destination);
 		
 	}
+}
+
+function initAudio(index) {
+	var audioSource = index.value;
+	var constraints = {
+		audio: {deviceId: audioSource ? {exact: audioSource} : undefined}
+	};
+	
+	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
 }
 
 function gotDevices(deviceInfos) {
