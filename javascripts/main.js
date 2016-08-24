@@ -6,7 +6,6 @@ function recordTest () {};
 var audioRecorder = null;
 
 function gotStream(stream) {
-	//window.stream = stream; // make stream available to console
 	
 	// Create an AudioNode from the stream.
 	var realAudioInput = audioContext.createMediaStreamSource(stream);
@@ -24,23 +23,14 @@ function gotStream(stream) {
 	audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
 	// speak / headphone feedback initial settings
 	
-	//changeGain.gain.value = 1.0;
-	//inputPoint.connect(changeGain);
-	//changeGain.connect(audioContext.destination);
 	inputPoint.connect(audioContext.destination);
 	
-	return navigator.mediaDevices.enumerateDevices();
 }
 
 function initAudio(index) {
-	if (window.stream) {
-		window.stream.getTracks().forEach(function(track) {
-			track.stop();
-		});
-	}
+
 	
-	var audioSource = index.value;
-	
+	var audioSource = index.value;	
 	var constraints = {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
 	};
