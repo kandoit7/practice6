@@ -35,7 +35,6 @@ function initAudio(index) {
 	var audioRecorder;
 	function gotStream(stream) {
 	
-		console.log(stream);
 		// Create an AudioNode from the stream.
 		var realAudioInput = audioContext.createMediaStreamSource(stream);
 		var audioInput = realAudioInput;
@@ -59,7 +58,8 @@ function initAudio(index) {
 	var constraints = {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
 	};
-	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
+	var test2 = navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
+	console.log(test2);
 }
 
 function gotDevices(deviceInfos) {
