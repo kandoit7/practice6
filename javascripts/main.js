@@ -6,7 +6,7 @@ function recordTest () {};
 var test1 = null;
 var recIndex = 0;
 function gotBuffers( buffers ) {
-	var ci = "c"+canvasID1;
+	var ci = "c"+canvasID;
    	var canvas = document.getElementById(ci);
 	drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 }
@@ -18,7 +18,7 @@ function doneEncoding( blob ) {
 
 function toggleRecording( e ) {
 	console.log(e);
-	console.log(e.parentNode);
+	console.log(e.childNode);
 	console.log(e.parentNode.src);
 	var imgchange = e;
 	if (e.classList.contains("recording")) {
@@ -26,7 +26,11 @@ function toggleRecording( e ) {
 		e.parentNode.src.stop();
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png'
-		e.parentNode.src.getBuffers( gotBuffers );
+		e.parentNode.src.getBuffers( function() {
+   			var canvas = document.getElementById(ci);
+			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
+		});
+		//e.parentNode.src.getBuffers( gotBuffers );
 		//e.parentNode.src.exportWAV( doneEncoding );
 	} else {
 		// start recording  
