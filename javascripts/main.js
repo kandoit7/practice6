@@ -35,7 +35,7 @@ function initAudio(index) {
 	};
 	
 	test1 = navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
-	console.log(test1["[[PromiseValue]]"]);
+	console.log(test1);
 }
 
 function gotDevices(deviceInfos) {
