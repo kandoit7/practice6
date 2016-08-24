@@ -31,6 +31,8 @@ function down( e ) {
 }
 
 function toggleRecording( e ) {
+	console.log(e);
+	console.log(e.parentNode);
 	var loadCloud = e.parentNode;
 	var audioRecorder = loadCloud.save;
 	var imgchange = e;
