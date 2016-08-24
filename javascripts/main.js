@@ -7,8 +7,11 @@ var test1 = null;
 var recIndex = 0;
 
 function doneEncoding( blob ) {
-    var good = Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
-    console.log(good);
+    var good = Recorder.setupDownload( blob );
+    var link = document.getElementById("save");
+    link.href = good;
+    link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
+    console.log(link);
     recIndex++;
 }
 
