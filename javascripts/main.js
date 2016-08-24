@@ -53,8 +53,7 @@ function initAudio(index) {
 	var audioRecorder = null;
 	
 	function gotStream(stream) {
-		
-		//console.log(idconfirm);	
+			
 		// Create an AudioNode from the stream.
 		var realAudioInput = audioContext.createMediaStreamSource(stream);
 		var audioInput = realAudioInput;
@@ -82,7 +81,7 @@ function initAudio(index) {
 	.then(gotStream)
 	.then(function() { 
 		console.log(audioRecorder);
-		idconfirm.href = audioRecorder;
+		idconfirm.src = audioRecorder;
 	})
 	.catch(handleError);
 }
