@@ -27,7 +27,7 @@ function toggleRecording( e ) {
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png'
 		e.parentNode.src.getBuffers( function() {
-			var ci = e.parentNode.childNodes[1];
+			var ci = e.parentNode.childNodes[2];
 			console.log(ci);
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
