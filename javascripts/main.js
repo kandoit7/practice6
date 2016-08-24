@@ -58,7 +58,7 @@ function initAudio(index) {
 	var constraints = {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
 	};
-	var test2 = navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
+	var test2 = navigator.mediaDevices.getUserMedia(constraints,gotStream,handleError);
 	console.log(test2);
 }
 
