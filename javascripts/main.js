@@ -5,11 +5,6 @@ function recordTest () {};
 //var audioRecorder = null;
 var test1 = null;
 var recIndex = 0;
-function gotBuffers( buffers ) {
-	var ci = "c"+canvasID;
-   	var canvas = document.getElementById(ci);
-	drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-}
 
 function doneEncoding( blob ) {
     Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
@@ -32,8 +27,7 @@ function toggleRecording( e ) {
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 		});
-		//e.parentNode.src.getBuffers( gotBuffers );
-		//e.parentNode.src.exportWAV( doneEncoding );
+		e.parentNode.src.exportWAV( doneEncoding );
 	} else {
 		// start recording  
 		if (!e.parentNode.src)
