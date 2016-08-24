@@ -1,7 +1,7 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
 var masterInputSelector = document.createElement('select');
 
-var recordTest = {}
+var recordTest = {
 
 recordTest.audioRecorder = null;
 recordTest.recIndex = 0;
@@ -81,6 +81,7 @@ recordTest.gotStream = function(stream) {
 	
 	inputPoint.connect(audioContext.destination);
 	
+}
 }
 
 function gotDevices(deviceInfos) {
