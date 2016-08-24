@@ -1,4 +1,5 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
+var masterInputSelector = document.createElement('select');
 
 function recordTest () {};
 
