@@ -35,7 +35,7 @@ function initAudio(index) {
 	var constraints = {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
 	
-	gotStream = function (stream) {
+	this.gotStream = function (stream) {
 		
 		// Create an AudioNode from the stream.
 		var realAudioInput = audioContext.createMediaStreamSource(stream);
