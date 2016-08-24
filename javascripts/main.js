@@ -26,7 +26,7 @@ function toggleRecording( e ) {
 		e.parentNode.src.stop();
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png'
-		e.parentNode.src.getBuffers( function() {
+		e.parentNode.src.getBuffers( function(buffers) {
 			var ci = e.previousElementSibling.id;
 			console.log(ci);
    			var canvas = document.getElementById(ci);
