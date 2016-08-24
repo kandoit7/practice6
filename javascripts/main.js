@@ -12,9 +12,6 @@ function doneEncoding( blob ) {
 }
 
 function toggleRecording( e ) {
-	console.log(e);
-	console.log(e.childNode);
-	console.log(e.parentNode.src);
 	var imgchange = e;
 	if (e.classList.contains("recording")) {
 		// stop recording
@@ -26,9 +23,9 @@ function toggleRecording( e ) {
 			console.log(ci);
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
+			e.parentNode.src.exportWAV(doneEncoding);
 		});
 		console.log(e.parentNode.src);
-		e.parentNode.src.exportWAV(doneEncoding);
 	} else {
 		// start recording  
 		if (!e.parentNode.src)
