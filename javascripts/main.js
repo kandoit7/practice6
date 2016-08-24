@@ -20,24 +20,23 @@ function toggleRecording( e ) {
 	console.log(e);
 	console.log(e.parentNode);
 	console.log(e.parentNode.src);
-	var audioRecorder = e.parentNode.src;
 	var imgchange = e;
 	if (e.classList.contains("recording")) {
 		// stop recording
-		audioRecorder.stop();
+		e.parentNode.src.stop();
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png'
-		audioRecorder.getBuffers( gotBuffers );
-		audioRecorder.exportWAV( doneEncoding );
+		e.parentNode.src.getBuffers( gotBuffers );
+		e.parentNode.src.exportWAV( doneEncoding );
 	} else {
 		// start recording  
-		if (!audioRecorder)
+		if (!e.parentNode.src)
 	    		return;
 	
 		e.classList.add("recording");
 		imgchange.src = 'images/micrec.png'
-		audioRecorder.clear();
-		audioRecorder.record();
+		e.parentNode.src.clear();
+		e.parentNode.src.record();
 	}
 }
 
