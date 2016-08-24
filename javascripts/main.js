@@ -1,7 +1,7 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
 var masterInputSelector = document.createElement('select');
 
-var recordTest = {
+function recordTest () {
 
 	recordTest.audioRecorder = null;
 	recordTest.recIndex = 0;
