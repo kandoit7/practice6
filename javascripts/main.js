@@ -20,11 +20,11 @@ function gotStream(stream) {
 	analyserNode.fftSize = 2048;
 	inputPoint.connect( analyserNode );
 	
-	audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
+	var audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
 	// speak / headphone feedback initial settings
 	
 	inputPoint.connect(audioContext.destination);
-	
+	return audioRecorder;
 }
 
 function initAudio(index) {
