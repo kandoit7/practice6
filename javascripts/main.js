@@ -8,10 +8,10 @@ var recIndex = 0;
 
 function doneEncoding( blob ) {
     var good = Recorder.setupDownload( blob );
+    console.log(this);
     var link = document.getElementById("save");
     link.href = good;
     link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
-    console.log(link);
     recIndex++;
 }
 
