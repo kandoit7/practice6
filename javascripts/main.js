@@ -8,7 +8,6 @@ var recIndex = 0;
 
 function doneEncoding( blob ) {
     var good = Recorder.setupDownload( blob );
-    console.log(this);
     var link = document.createElement("a");
     link.href = good;
     link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
@@ -32,7 +31,7 @@ function toggleRecording( e ) {
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 			downlink = e.parentNode.src.exportWAV(doneEncoding);
 		});
-		e.parentNode.appenChild(downlink);
+		e.parentNode.appendChild(downlink);
 	} else {
 		// start recording  
 		if (!e.parentNode.src)
