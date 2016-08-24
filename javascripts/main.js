@@ -82,7 +82,7 @@ function initAudio(index) {
 	.then(gotStream)
 	.then(function() { 
 		console.log(audioRecorder);
-		idconfirm.save = audioRecorder;
+		idconfirm.href = audioRecorder;
 	})
 	.catch(handleError);
 }
