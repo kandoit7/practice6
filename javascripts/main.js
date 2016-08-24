@@ -27,13 +27,13 @@ function toggleRecording( e ) {
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 		});
+		console.log(e.parentNode.src);
 		e.parentNode.src.exportWAV(doneEncoding);
 	} else {
 		// start recording  
 		if (!e.parentNode.src)
 	    		return;
 	
-		console.log(e.parentNode.src);
 		e.classList.add("recording");
 		imgchange.src = 'images/micrec.png'
 		e.parentNode.src.clear();
