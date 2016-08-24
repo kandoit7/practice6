@@ -16,20 +16,6 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-function play( e ) {
-	console.log(e);
-	
-	var track = new Audio(tracklink1.href);
-	track.play();
-}
-
-function down( e ) {
-	tracklink1 = document.createElement('a');
-	tracklink1.id = lrecord1;
-	tracklink1.href = link1.href;
-	e.appendChild(tracklink1);
-}
-
 function toggleRecording( e ) {
 	console.log(e);
 	console.log(e.parentNode);
