@@ -27,9 +27,7 @@ function toggleRecording( e ) {
 		audioRecorder.stop();
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png'
-		lrecord1 = "l" + e.id;
 		audioRecorder.getBuffers( gotBuffers );
-		//link1 = document.getElementById('save');
 		audioRecorder.exportWAV( doneEncoding );
 	} else {
 		// start recording  
