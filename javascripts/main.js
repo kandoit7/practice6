@@ -3,6 +3,7 @@ var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
 function recordTest () {};
 
 var audioRecorder = null;
+var test1 = null;
 
 function gotStream(stream) {
 	
@@ -33,8 +34,8 @@ function initAudio(index) {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
 	};
 	
-	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
-	
+	test1 = navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
+	console.log(test1);
 }
 
 function gotDevices(deviceInfos) {
