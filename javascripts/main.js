@@ -38,6 +38,7 @@ function toggleRecording( e ) {
 		if (!e.parentNode.src)
 	    		return;
 	
+		console.log(e.parentNode.src);
 		e.classList.add("recording");
 		imgchange.src = 'images/micrec.png'
 		e.parentNode.src.clear();
