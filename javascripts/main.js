@@ -23,7 +23,7 @@ function toggleRecording( e ) {
 			console.log(ci);
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-			e.parentNode.src.exportWAV(doneEncoding);
+			var good = e.parentNode.src.exportWAV(doneEncoding);
 		});
 		console.log(e.parentNode.src);
 	} else {
