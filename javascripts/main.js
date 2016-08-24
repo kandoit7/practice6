@@ -4,7 +4,7 @@ function recordTest () {};
 
 //var audioRecorder = null;
 var test1 = null;
-
+var recIndex = 0;
 function gotBuffers( buffers ) {
 	var ci = "c"+canvasID1;
    	var canvas = document.getElementById(ci);
