@@ -27,7 +27,7 @@ function toggleRecording( e ) {
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png'
 		e.parentNode.src.getBuffers( gotBuffers );
-		e.parentNode.src.exportWAV( doneEncoding );
+		//e.parentNode.src.exportWAV( doneEncoding );
 	} else {
 		// start recording  
 		if (!e.parentNode.src)
