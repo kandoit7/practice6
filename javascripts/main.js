@@ -1,111 +1,86 @@
+var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
 var masterInputSelector = document.createElement('select');
 
-var audioContext = new (window.AudioContext || window.webkitAudioContext)();
-var audioRecorder1 = null;
-var audioRecorder2 = null;
-var Track = null;    
-var rafID = null;
-var canvasID1 = null;
-var canvasID2 = null;
-var recIndex = 0;
-var lrecord1 = null;
-var lrecord2 = null;
-var tracklink1 = null;
-var tracklink2 = null;
-var link1 = null;
-var link2 = null;
+var recordTest = {}
 
-function gotBuffers1( buffers ) {
-	var ci = "c"+canvasID1;
-   	var canvas = document.getElementById(ci);
-	drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-	audioRecorder1.exportWAV( doneEncoding );
+recordTest.audioRecorder = null;
+recordTest.recIndex = 0;
+recordTest.canvasID = null;
+recordTest.lrecord = null;
+recordTest.tracklink = null;
+recordTest.downlink = null;
+
+recordTest.gotBuffer = function(buffers) {
+	var ci = "c"+canvasID;
+	var canvas = document.getElementById(ci);
+	drawBuffer(canvas.width, canvas.height, canvas.getContext('2d'), buffers[0]);
+	audioRecorder.exportWAV(doneEncoding);
 }
 
-function gotBuffers2( buffers ) {
-	var ci = "c"+canvasID2;
-   	var canvas = document.getElementById(ci);
-	drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-	audioRecorder2.exportWAV( doneEncoding );
+recordTest.doneEncoding = function(blob) {
+	Recorder.setupDownload(blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav");
+	recIndex++;
 }
 
-function play1( e ) {
-	console.log(e);
-	
-	var track = new Audio(tracklink1.href);
-	track.play();
+recordTest.play = function(e) {
+	var track = new Audio(tracklink.href);
 }
 
-function play2( e ) {
-	console.log(e);
-	
-	var track = new Audio(tracklink2.href);
-	track.play();
+recordTest.down = function(e) {
+	tracklink = document.createElement('a');
+	tracklink.id = lrecord;
+	tracklink.href = downlink.href;
+	e.appendChild(tracklink);
 }
 
-function down1( e ) {
-	tracklink1 = document.createElement('a');
-	tracklink1.id = lrecord1;
-	tracklink1.href = link1.href;
-	e.appendChild(tracklink1);
-}
-
-function down2( e ) {
-	tracklink2 = document.createElement('a');
-	tracklink2.id = lrecord2;
-	tracklink2.href = link2.href;
-	e.appendChild(tracklink2);
-}
-
-function toggleRecording1( e ) {
-	canvasID1 = e.id;
-	var imgchange = e;
-	if (e.classList.contains("recording")) {
-		// stop recording
-		audioRecorder1.stop();
+recordTest.toggleRecording = function(e) {
+	canvasID = e.id;
+	var imgChange = e;
+	if(e.classList.containts("recording")) {
+		audioRecorder.stop();
 		e.classList.remove("recording");
-		imgchange.src = 'images/mic.png'
-		lrecord1 = "l" + e.id;
-		audioRecorder1.getBuffers( gotBuffers1 );
-		link1 = document.getElementById('save');
+		imgChange.src = 'images/mic.png';
+		lrecord = "l" + e.id;
+		audioRecorder.getBuffers(gotBuffer);
+		downlink = document.getElementById('save');
 	} else {
-		// start recording  
-		if (!audioRecorder1)
-	    		return;
-	
+		if(!audioRecorder)
+			return;
+		
 		e.classList.add("recording");
-		imgchange.src = 'images/micrec.png'
-		audioRecorder1.clear();
-		audioRecorder1.record();
+		imgChange.src = 'images/micrec.png';
+		audioRecorder.clear();
+		audioRecorder.record();
 	}
 }
 
-function toggleRecording2( e ) {
-	canvasID2 = e.id;
-	var imgchange = e;
-	if (e.classList.contains("recording")) {
-		// stop recording
-		audioRecorder2.stop();
-		e.classList.remove("recording");
-		imgchange.src = 'images/mic.png'
-		lrecord2 = "l" + e.id;
-		audioRecorder2.getBuffers( gotBuffers2 );
-		link2 = document.getElementById('save');
-	} else {
-		// start recording  
-		if (!audioRecorder2)
-	    		return;
+recordTest.initAudio = function(index) {
+	var audioSource = index.value;
+	var constraints = {
+		audio: {deviceId: audioSource ? {exact: audioSource} : undefined}
+	};
 	
-		e.classList.add("recording");
-		imgchange.src = 'images/micrec.png'
-		audioRecorder2.clear();
-		audioRecorder2.record();
-	}
+	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
 }
 
-function doneEncoding( blob ) {
-    Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
-    recIndex++;
+recordTest.gotStream = function(stream) {
+	
+	var realAudioInput = audioContext.createMediaStreamSource(stream);
+	var audioInput = realAudioInput;
+	
+	var inputPoint = audioContext.createGain();
+	inputPoint.gain.value = 1.0;
+	audioInput.connect(inputPoint);
+	//audioInput = convertToMono( input );
+	
+	var analyserNode = audioContext.createAnalyser();
+	analyserNode.fftSize = 2048;
+	inputPoint.connect( analyserNode );
+	
+	audioRecorder = new Recorder( inputPoint ); // this fuck what the fuck
+	
+	inputPoint.connect(audioContext.destination);
+	
 }
 
 function gotDevices(deviceInfos) {
@@ -127,89 +102,16 @@ function gotDevices(deviceInfos) {
 		audioInputSelect[selector].parentNode.replaceChild(newInputSelector, audioInputSelect[selector]);
 	}
 }
-	
+
 function changeAudioDestination(event) {
 	var InputSelector = event.path[0];
 	initAudio(InputSelector);
-}
-	
-function gotStream1(stream) {
-	//window.stream = stream; // make stream available to console
-	
-	// Create an AudioNode from the stream.
-	var realAudioInput = audioContext.createMediaStreamSource(stream);
-	var audioInput = realAudioInput;
-	
-	var inputPoint = audioContext.createGain();
-	inputPoint.gain.value = 1.0;
-	audioInput.connect(inputPoint);
-	//audioInput = convertToMono( input );
-	
-	var analyserNode = audioContext.createAnalyser();
-	analyserNode.fftSize = 2048;
-	inputPoint.connect( analyserNode );
-	
-	audioRecorder1 = new Recorder( inputPoint ); // this fuck what the fuck
-	// speak / headphone feedback initial settings
-	
-	//changeGain.gain.value = 1.0;
-	//inputPoint.connect(changeGain);
-	//changeGain.connect(audioContext.destination);
-	inputPoint.connect(audioContext.destination);
-	
-	return navigator.mediaDevices.enumerateDevices();
-}
-
-function gotStream2(stream) {
-	//window.stream = stream; // make stream available to console
-	
-	// Create an AudioNode from the stream.
-	var realAudioInput = audioContext.createMediaStreamSource(stream);
-	var audioInput = realAudioInput;
-	
-	var inputPoint = audioContext.createGain();
-	inputPoint.gain.value = 1.0;
-	audioInput.connect(inputPoint);
-	//audioInput = convertToMono( input );
-	
-	var analyserNode = audioContext.createAnalyser();
-	analyserNode.fftSize = 2048;
-	inputPoint.connect( analyserNode );
-	
-	audioRecorder2 = new Recorder( inputPoint ); // this fuck what the fuck
-	// speak / headphone feedback initial settings
-	
-	//changeGain.gain.value = 1.0;
-	//inputPoint.connect(changeGain);
-	//changeGain.connect(audioContext.destination);
-	inputPoint.connect(audioContext.destination);
-	
-	return navigator.mediaDevices.enumerateDevices();
-}
-function initAudio(index) {
-	if (window.stream) {
-		window.stream.getTracks().forEach(function(track) {
-			track.stop();
-		});
-	}
-	
-	var audioSource = index.value;
-	var idconfirm = index.parentNode;
-	console.log(idconfirm);
-	var constraints = {
-		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
-	};
-	
-	if(idconfirm.id == "track1")
-		navigator.mediaDevices.getUserMedia(constraints).then(gotStream1).catch(handleError);
-	if(idconfirm.id == "track2")
-		navigator.mediaDevices.getUserMedia(constraints).then(gotStream2).catch(handleError);
-	
 }
 
 function handleError(error) {
   console.log('navigator.getUserMedia error: ', error);
 }
 
-navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+var firstRecord = new recordTest();
 
+navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
