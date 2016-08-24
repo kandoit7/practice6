@@ -93,6 +93,7 @@ function initAudio(index) {
 	};
 	
 	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
+	console.log(audioRecorder);
 	recordCloud.save = audioRecorder;
 	idconfirm.appendChild(recordCloud);
 	console.log(recordCloud);
