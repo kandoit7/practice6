@@ -17,6 +17,7 @@ function doneEncoding( blob ) {
 
 function toggleRecording( e ) {
 	var imgchange = e;
+	var Check = e.parentNode;
 	if (e.classList.contains("recording")) {
 		// stop recording
 		e.parentNode.src.stop();
@@ -31,7 +32,7 @@ function toggleRecording( e ) {
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 			downlink = e.parentNode.src.exportWAV(doneEncoding);
 		});
-		e.parentNode.appendChild(downlink);
+		Check.appendChild(downlink);
 	} else {
 		// start recording  
 		if (!e.parentNode.src)
