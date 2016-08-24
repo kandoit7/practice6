@@ -1,5 +1,4 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
-var masterInputSelector = document.createElement('select');
 
 function recordTest () {};
 
@@ -29,7 +28,6 @@ function gotStream(stream) {
 
 function initAudio(index) {
 
-	
 	var audioSource = index.value;	
 	var constraints = {
 		audio: { deviceId: audioSource ? {exact: audioSource} : undefined}
@@ -40,6 +38,8 @@ function initAudio(index) {
 }
 
 function gotDevices(deviceInfos) {
+	
+	var masterInputSelector = document.createElement('select');
 	
 	for (var i = 0; i !== deviceInfos.length; ++i) {
 		var deviceInfo = deviceInfos[i];
@@ -60,11 +60,13 @@ function gotDevices(deviceInfos) {
 }
 
 function changeAudioDestination(event) {
+	
 	var InputSelector = event.path[0];
 	initAudio(InputSelector);
 }
 
 function handleError(error) {
+	
   console.log('navigator.getUserMedia error: ', error);
 }
 
