@@ -5,15 +5,66 @@ function recordTest () {};
 //var audioRecorder = null;
 var test1 = null;
 
+function gotBuffers( buffers ) {
+	var ci = "c"+canvasID1;
+   	var canvas = document.getElementById(ci);
+	drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
+}
+
+function doneEncoding( blob ) {
+    Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+    recIndex++;
+}
+
+function play( e ) {
+	console.log(e);
+	
+	var track = new Audio(tracklink1.href);
+	track.play();
+}
+
+function down( e ) {
+	tracklink1 = document.createElement('a');
+	tracklink1.id = lrecord1;
+	tracklink1.href = link1.href;
+	e.appendChild(tracklink1);
+}
+
+function toggleRecording( e ) {
+	var loadCloud = e.parentNode;
+	var audioRecorder = loadCloud.save;
+	var imgchange = e;
+	if (e.classList.contains("recording")) {
+		// stop recording
+		audioRecorder.stop();
+		e.classList.remove("recording");
+		imgchange.src = 'images/mic.png'
+		lrecord1 = "l" + e.id;
+		audioRecorder.getBuffers( gotBuffers );
+		//link1 = document.getElementById('save');
+		audioRecorder.exportWAV( doneEncoding );
+	} else {
+		// start recording  
+		if (!audioRecorder)
+	    		return;
+	
+		e.classList.add("recording");
+		imgchange.src = 'images/micrec.png'
+		audioRecorder.clear();
+		audioRecorder.record();
+	}
+}
+
 function initAudio(index) {
 
 	var audioSource = index.value;
 	var idconfirm = index.parentNode;
+	var recordCloud = document.createElement('a');
 	var audioRecorder = null;
 	
 	function gotStream(stream) {
 		
-		console.log(idconfirm);	
+		//console.log(idconfirm);	
 		// Create an AudioNode from the stream.
 		var realAudioInput = audioContext.createMediaStreamSource(stream);
 		var audioInput = realAudioInput;
@@ -21,7 +72,6 @@ function initAudio(index) {
 		var inputPoint = audioContext.createGain();
 		inputPoint.gain.value = 1.0;
 		audioInput.connect(inputPoint);
-		//audioInput = convertToMono( input );
 		
 		var analyserNode = audioContext.createAnalyser();
 		analyserNode.fftSize = 2048;
@@ -39,6 +89,8 @@ function initAudio(index) {
 	};
 	
 	navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(handleError);
+	recordCloud.save = audioRecorder;
+	idconfirm.appendChild(recordCloud);
 }
 
 function gotDevices(deviceInfos) {
