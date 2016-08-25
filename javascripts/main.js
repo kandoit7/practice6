@@ -21,7 +21,7 @@ function addNewTrack(e) {
 		+ "	<a></a>"
 		+ "</div>";
 	
-	node.innerHTML = tag;
+	node.append(tag);// = tag;
 }
 
 //click play button -> play the recorded audio
