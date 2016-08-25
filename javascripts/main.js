@@ -6,6 +6,11 @@ function recordTest () {};
 var test1 = null;
 var recIndex = 0;
 
+//add New Track
+function addNewTrack(e) {
+	console.log(e.parentNode);
+}
+
 //click play button -> play the recorded audio
 function play(e) {
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
