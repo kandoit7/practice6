@@ -9,7 +9,7 @@ var tagIndex = 3;
 //add New Track
 function addNewTrack(e) {
 	var newDiv = document.createElement('div');
-	newDiv.id = "track"+tragIndex;
+	newDiv.id = "track"+tagIndex;
 	
 	console.log(e.parentNode.parentNode);
 	var node = e.parentNode.parentNode;
@@ -23,7 +23,7 @@ function addNewTrack(e) {
 		+ "	<a></a>";
 	
 	node.appendChild(newDiv);
-	var lastProc = document.getElementById("track"+tragIndex);
+	var lastProc = document.getElementById("track"+tagIndex);
 	console.log(lastProc);
 }
 
