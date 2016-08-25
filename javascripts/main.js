@@ -6,13 +6,16 @@ function recordTest () {};
 var test1 = null;
 var recIndex = 0;
 var tagIndex = 3;
+//final process
+var childIndex = 1;
+
 //add New Track
 function addNewTrack(e) {
 	var newDiv = document.createElement('div');
 	newDiv.id = "track"+tagIndex;
 	var node = e.parentNode.parentNode;
 	node.insertBefore(newDiv, node.childNodes[4]);
-	console.log(node.childNodes);
+	console.log(node.childNodes[10]);
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
