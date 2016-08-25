@@ -8,7 +8,6 @@ var recIndex = 0;
 
 //click play button -> play the recorded audio
 function play(e) {
-	console.log(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling);
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
 	var track = new Audio(link.href);
 	track.play();
@@ -28,7 +27,6 @@ function doneEncoding( blob ) {
 function toggleRecording( e ) {
 	var imgchange = e;
 	var Check = e.parentNode;
-	console.log(Check);
 	if (e.classList.contains("recording")) {
 		// stop recording
 		e.parentNode.src.stop();
@@ -99,7 +97,6 @@ function initAudio(index) {
 	navigator.mediaDevices.getUserMedia(constraints)
 	.then(gotStream)
 	.then(function() { 
-		console.log(audioRecorder);
 		idconfirm.src = audioRecorder;
 	})
 	.catch(handleError);
