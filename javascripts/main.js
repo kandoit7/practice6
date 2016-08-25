@@ -6,6 +6,7 @@ function recordTest () {};
 var test1 = null;
 var recIndex = 0;
 
+//click play button -> play the recorded audio
 function play(e) {
 	console.log(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling);
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
@@ -14,6 +15,7 @@ function play(e) {
 	
 }
 
+//URL of recorded audio && create <a> Element
 function doneEncoding( blob ) {
     var good = Recorder.setupDownload( blob );
     var link = document.createElement("a");
@@ -22,6 +24,7 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
+// recording button function ( toggle )
 function toggleRecording( e ) {
 	var imgchange = e;
 	var Check = e.parentNode;
@@ -60,6 +63,7 @@ function toggleRecording( e ) {
 	}
 }
 
+//Audio recording check
 function initAudio(index) {
 
 	var audioSource = index.value;
@@ -101,6 +105,7 @@ function initAudio(index) {
 	.catch(handleError);
 }
 
+//input Device Check
 function gotDevices(deviceInfos) {
 	
 	var masterInputSelector = document.createElement('select');
@@ -123,15 +128,18 @@ function gotDevices(deviceInfos) {
 	}
 }
 
+// function for many Selector Element 
 function changeAudioDestination(event) {
 	
 	var InputSelector = event.path[0];
 	initAudio(InputSelector);
 }
 
+// fail callback
 function handleError(error) {
 	
   console.log('navigator.getUserMedia error: ', error);
 }
 
+//Get Input Devices
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
