@@ -6,6 +6,10 @@ function recordTest () {};
 var test1 = null;
 var recIndex = 0;
 
+function play(e) {
+	console.log(e);
+}
+
 function doneEncoding( blob ) {
     var good = Recorder.setupDownload( blob );
     var link = document.createElement("a");
