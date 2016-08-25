@@ -25,6 +25,7 @@ function addNewTrack(e) {
 	var lastProc = document.getElementById("track"+tagIndex);
 	lastProc.innerHTML = tag;
 	console.log(lastProc);
+	tagIndex++;
 }
 
 //click play button -> play the recorded audio
