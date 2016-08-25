@@ -31,10 +31,11 @@ function toggleRecording( e ) {
 			//e.parentNode.src.exportWAV(doneEncoding);
 			e.parentNode.src.exportWAV(function(blob) {
 				var good = Recorder.setupDownload( blob );
-				var link = document.getElementById("save");
+				var link = document.createElement("a");
 				link.href = good;
 				link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
 				recIndex++;
+				e.parentNode.childNode(link);
 			});
 			
 		});
