@@ -7,7 +7,7 @@ var test1 = null;
 var recIndex = 0;
 
 function play(e) {
-	console.log(e.parentNode.nextElementSibling.nextElementSibling);
+	console.log(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling);
 	
 }
 
