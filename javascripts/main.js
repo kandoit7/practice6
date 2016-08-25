@@ -8,20 +8,23 @@ var recIndex = 0;
 var tagIndex = 3;
 //add New Track
 function addNewTrack(e) {
+	var newDiv = document.createElement('div');
+	newDiv.id = "track"+tragIndex;
+	
 	console.log(e.parentNode.parentNode);
 	var node = e.parentNode.parentNode;
-	var tag = "<div id='track"+ tagIndex + "'"   + " >"
-	  	+ "	<span class='track'>track1"
+	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
 	  	+ "		<input type='button' value='down' onclick='down(this);'/>"
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
 		+ "	<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
 		+ "	<select id='change'></select>"
-		+ "	<a></a>"
-		+ "</div>";
+		+ "	<a></a>";
 	
-	node.appendChild(tag);// = tag;
+	node.appendChild(newDiv);
+	var lastProc = document.getElementById("track"+tragIndex);
+	console.log(lastProc);
 }
 
 //click play button -> play the recorded audio
