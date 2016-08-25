@@ -14,25 +14,18 @@ function play(e) {
 	
 }
 
-//URL of recorded audio && create <a> Element
-function doneEncoding( blob ) {
-    var good = Recorder.setupDownload( blob );
-    var link = document.createElement("a");
-    link.href = good;
-    link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
-    recIndex++;
-}
-
 // recording button function ( toggle )
 function toggleRecording( e ) {
 	var imgchange = e;
 	var Check = e.parentNode;
+	
 	if (e.classList.contains("recording")) {
 		// stop recording
 		e.parentNode.src.stop();
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png';
 		
+		//draw signal on canvas && buffer link create
 		e.parentNode.src.getBuffers( function(buffers) {
 			var ci = e.previousElementSibling.id;
    			var canvas = document.getElementById(ci);
@@ -140,3 +133,15 @@ function handleError(error) {
 
 //Get Input Devices
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+
+//URL of recorded audio && create <a> Element
+//but this function not using
+/*
+function doneEncoding( blob ) {
+    var good = Recorder.setupDownload( blob );
+    var link = document.createElement("a");
+    link.href = good;
+    link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
+    recIndex++;
+}
+*/
