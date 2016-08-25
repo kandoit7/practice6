@@ -8,7 +8,7 @@ var recIndex = 0;
 
 function doneEncoding( blob ) {
     var good = Recorder.setupDownload( blob );
-    var link = document.createElement("a");
+    var link = document.getElementById("save");
     link.href = good;
     link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
     recIndex++;
@@ -24,12 +24,13 @@ function toggleRecording( e ) {
 		e.parentNode.src.stop();
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png';
+		var downlink = null;
 		
 		e.parentNode.src.getBuffers( function(buffers) {
 			var ci = e.previousElementSibling.id;
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-			var downlink = e.parentNode.src.exportWAV(doneEncoding);
+			downlink = e.parentNode.src.exportWAV(doneEncoding);
 		});
 		console.log(downlink);
 	} else {
