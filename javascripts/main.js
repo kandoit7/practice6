@@ -12,6 +12,7 @@ function addNewTrack(e) {
 	newDiv.id = "track"+tagIndex;
 	var node = e.parentNode.parentNode;
 	node.insertBefore(newDiv, node.childNodes[4]);
+	console.log(node.childNodes[4]);
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
@@ -26,7 +27,6 @@ function addNewTrack(e) {
 	lastProc.innerHTML = tag;
 	console.log(lastProc);
 	tagIndex++;
-	location.reload();
 }
 
 //click play button -> play the recorded audio
