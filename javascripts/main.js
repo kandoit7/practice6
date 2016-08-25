@@ -10,13 +10,13 @@ var tagIndex = 3;
 function addNewTrack(e) {
 	console.log(e.parentNode.parentNode);
 	var node = e.parentNode.parentNode;
-	var tag = "<div id='track'" + tagIndex + " >"
+	var tag = "<div id='track"+ tagIndex + "'"   + " >"
 	  	+ "	<span class='track'>track1"
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
 	  	+ "		<input type='button' value='down' onclick='down(this);'/>"
 		+ "	</span>"
-		+ "	<canvas id='crecord'" + tagIndex + "class='record'" + tagIndex + "></canvas>"
-		+ "	<img id='record'" + tagIndex + "src='images/mic.png' onclick='toggleRecording(this);'>"
+		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
+		+ "	<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
 		+ "	<select id='change'></select>"
 		+ "	<a></a>"
 		+ "</div>";
