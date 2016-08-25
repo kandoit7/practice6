@@ -10,9 +10,9 @@ var tagIndex = 3;
 function addNewTrack(e) {
 	var newDiv = document.createElement('div');
 	newDiv.id = "track"+tagIndex;
-	
-	console.log(e.parentNode.parentNode);
 	var node = e.parentNode.parentNode;
+	node.appendChild(newDiv);
+	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
 	  	+ "		<input type='button' value='down' onclick='down(this);'/>"
@@ -22,8 +22,8 @@ function addNewTrack(e) {
 		+ "	<select id='change'></select>"
 		+ "	<a></a>";
 	
-	node.appendChild(newDiv);
 	var lastProc = document.getElementById("track"+tagIndex);
+	lastProc.innerHTML = tag;
 	console.log(lastProc);
 }
 
