@@ -12,7 +12,7 @@ function doneEncoding( blob ) {
     link.href = good;
     link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
     recIndex++;
-    return link;
+    return good;
 }
 
 function toggleRecording( e ) {
