@@ -7,7 +7,8 @@ var test1 = null;
 var recIndex = 0;
 
 function play(e) {
-	console.log(e);
+	console.log(e.parentNode);
+	
 }
 
 function doneEncoding( blob ) {
