@@ -8,6 +8,9 @@ var recIndex = 0;
 
 function play(e) {
 	console.log(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling);
+	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+	var track = new Audio(link.href);
+	track.play();
 	
 }
 
