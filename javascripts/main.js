@@ -35,7 +35,7 @@ function toggleRecording( e ) {
 				link.href = good;
 				link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
 				recIndex++;
-				e.parentNode.childNode(link);
+				e.parentNode.appendChild(link);
 			});
 			
 		});
