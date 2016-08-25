@@ -8,7 +8,7 @@ var recIndex = 0;
 
 //add New Track
 function addNewTrack(e) {
-	console.log(e.parentNode);
+	console.log(e.parentNode.parentNode);
 }
 
 //click play button -> play the recorded audio
