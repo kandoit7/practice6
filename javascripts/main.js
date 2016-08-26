@@ -51,6 +51,13 @@ function play(e) {
 	
 }
 
+//track Down
+function Down(e) {
+	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+	var e.href = link.href;
+	
+}
+
 // recording button function ( toggle )
 function toggleRecording( e ) {
 	var imgchange = e;
