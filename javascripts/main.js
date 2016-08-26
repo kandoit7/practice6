@@ -16,6 +16,7 @@ function AllPlay(e) {
 	for( var i = 0; i < Alllink.length; i++ ) {
 		play[i] = new Audio(Allink[i].link);
 	}
+	console.log(play);
 	play.play();
 }
 
