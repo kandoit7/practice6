@@ -23,7 +23,7 @@ function addNewTrack(e) {
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
 		+ "	<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
-		+ "	<select></select>"
+		+ "	<select id='change'></select>"
 		+ "	<a></a>";
 	
 	var lastProc = document.getElementById("track"+tagIndex);
