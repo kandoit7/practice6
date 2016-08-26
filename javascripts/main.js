@@ -7,14 +7,14 @@ var test1 = null;
 var recIndex = 0;
 var tagIndex = 3;
 //final process
-var childIndex = 1;
+var childIndex = 0;
 
 //add New Track
 function addNewTrack(e) {
 	var newDiv = document.createElement('div');
 	newDiv.id = "track"+tagIndex;
 	var node = e.parentNode.parentNode;
-	node.insertBefore(newDiv, node.childNodes[10+childIndex]);
+	node.insertBefore(newDiv, node.childNodes[7+childIndex]);
 	console.log(node.childNodes);
 	
 	var tag = "	<span class='track'>track" + tagIndex 
