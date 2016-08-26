@@ -12,12 +12,12 @@ var childIndex = 0;
 //track All play
 function AllPlay(e) {
 	var Alllink = document.querySelectorAll('a#tracklink');
-	var play = new Array();
+	var playlist = [];
 	for( var i = 0; i < Alllink.length; i++ ) {
-		play[i] = new Audio(Alllink[i].link);
+		playlist[i] = new Audio(Alllink[i].href);
+		console.log(Alllink[i].href);
+		playlist[i].play();
 	}
-	console.log(play);
-	play[0].play();
 }
 
 //add New Track
