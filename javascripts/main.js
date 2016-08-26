@@ -54,8 +54,8 @@ function play(e) {
 //track Down
 function down(e) {
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+	e.appendChild(link);
 	console.log(link);
-	
 }
 
 // recording button function ( toggle )
