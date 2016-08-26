@@ -17,7 +17,7 @@ function AllPlay(e) {
 		play[i] = new Audio(Alllink[i].link);
 	}
 	console.log(play);
-	play.play();
+	play[0].play();
 }
 
 //add New Track
