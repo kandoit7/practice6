@@ -30,6 +30,7 @@ function addNewTrack(e) {
 	lastProc.innerHTML = tag;
 	console.log(lastProc);
 	tagIndex++;
+	childIndex++;
 }
 
 //click play button -> play the recorded audio
