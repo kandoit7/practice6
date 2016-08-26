@@ -9,6 +9,11 @@ var tagIndex = 3;
 //final process
 var childIndex = 0;
 
+//track All play
+function AllPlay(e) {
+	
+}
+
 //add New Track
 function addNewTrack(e) {
 	var newDiv = document.createElement('div');
@@ -61,6 +66,7 @@ function toggleRecording( e ) {
 				var good = Recorder.setupDownload( blob );
 				var replace = e.nextElementSibling.nextElementSibling;
 				var link = document.createElement("a");
+				link.id = "tracklink";
 				link.href = good;
 				link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
 				recIndex++;
