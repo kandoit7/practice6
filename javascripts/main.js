@@ -31,6 +31,7 @@ function addNewTrack(e) {
 	console.log(lastProc);
 	tagIndex++;
 	childIndex++;
+	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 }
 
 //click play button -> play the recorded audio
