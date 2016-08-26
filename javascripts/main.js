@@ -54,7 +54,7 @@ function play(e) {
 //track Down
 function down(e) {
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
-	console.log(e.childNodes);
+	console.log(e);
 	console.log(link);
 }
 
