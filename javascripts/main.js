@@ -52,7 +52,7 @@ function play(e) {
 }
 
 //track Down
-function Down(e) {
+function down(e) {
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
 	console.log(link);
 	
