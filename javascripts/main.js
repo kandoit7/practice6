@@ -15,7 +15,7 @@ function addNewTrack(e) {
 	newDiv.id = "track"+tagIndex;
 	var node = e.parentNode.parentNode;
 	node.insertBefore(newDiv, node.childNodes[4]);
-	console.log(node.childNodes[10]);
+	console.log(node.childNodes[11]);
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
