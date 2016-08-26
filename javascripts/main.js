@@ -15,7 +15,6 @@ function addNewTrack(e) {
 	newDiv.id = "track"+tagIndex;
 	var node = e.parentNode.parentNode;
 	node.insertBefore(newDiv, node.childNodes[7+childIndex]);
-	console.log(node.childNodes);
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
@@ -28,7 +27,6 @@ function addNewTrack(e) {
 	
 	var lastProc = document.getElementById("track"+tagIndex);
 	lastProc.innerHTML = tag;
-	console.log(lastProc);
 	tagIndex++;
 	childIndex++;
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
