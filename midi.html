@@ -6,24 +6,19 @@
 		<link href="stylesheets/myStyle.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<select ID="sound">
-			<option value="0" selected>Keyboard</option>
-			<option value="1">Organ</option>
-			<option value="2">Acoustic Guitar</option>
-			<option value="3">EDM, bro!</option>
-		</select>
-		<div ID="keyboard" class="keyboard-holder"></div>
-		<div class="keyboard-options">
-			Range [C<span ID="OCTAVE_LOWER">3</span>-B<span ID="OCTAVE_UPPER">5</span>]
-			<input type="button" ID="-_OCTAVE" value="-" />
-			<input type="button" ID="+_OCTAVE" value="+" /><br />
-			<i>(Use left/right arrows to adjust with keyboard)</i>
-		</div>
-		
-		<script src="javascripts/midimain.js"></script>
+		<script src='javascripts/midimain.js'></script>
 		<script type="text/javascript">
 			var a = new AudioSynthView();
 			a.draw();
+		</script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			
+			ga('create', 'UA-44899638-2', 'keithwhor.com');
+			ga('send', 'pageview');
 		</script>
 	</body>
 </html>
