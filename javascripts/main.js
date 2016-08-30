@@ -59,15 +59,6 @@ function play(e) {
 	
 }
 
-//track Down
-function down(e) {
-	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
-	var a = document.createElement('a');
-	a = link;
-	e.appendChild(a);
-	console.log(link);
-}
-
 // recording button function ( toggle )
 function toggleRecording( e ) {
 	var imgchange = e;
