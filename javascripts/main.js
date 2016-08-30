@@ -54,7 +54,9 @@ function play(e) {
 //track Down
 function down(e) {
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
-	e.href = link.href;
+	var a = document.createElement('a');
+	a = link;
+	e.appendChild(a);
 	console.log(link);
 }
 
