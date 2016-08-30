@@ -48,7 +48,9 @@
 		<div id="track1">
 			<span class='track'>track1
 				<input type="button" value="play" onclick="play(this);"/>
-				<img src='images/save.png' onclick="down(this);">
+				<a id="down">
+					<img src='images/save.png'>
+				</a>	
 			</span>
 			<canvas id="crecord" class='record'></canvas>
 			<img id="record" src="images/mic.png" onclick="toggleRecording(this);">
@@ -59,9 +61,9 @@
 		<div id="track2">
 			<span class='track'>track2
 				<input type="button" value="play" onclick="play(this);"/>
-				<input type="button" value="down" onclick="down(this);">
-					<a></a>
-				</input>
+				<a id="down">
+					<img src='images/save.png'>
+				</a>
 			</span>
 			<canvas id="crecord2" class='record2'></canvas>
 			<img id="record2" src="images/mic.png" onclick="toggleRecording(this);">
