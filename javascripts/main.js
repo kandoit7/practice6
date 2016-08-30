@@ -46,6 +46,11 @@ function addNewTrack(e) {
 //click play button -> play the recorded audio
 function play(e) {
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+	var c = e.parentNode;
+	var a = document.createElement('a');
+	a = link;
+	var b = e.nextElementSibling;
+	c.replaceChild(b, a);
 	var track = new Audio(link.href);
 	track.play();
 	
