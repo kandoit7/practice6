@@ -30,7 +30,7 @@ function addNewTrack(e) {
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
 	  	+ "		<a id='down'>"
-		+ "			<img src='images/save.png'>"
+		+ "			<img id='save' src='images/save.png'>"
 		+ "		</a>"
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
