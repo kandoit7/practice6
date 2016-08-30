@@ -6,6 +6,21 @@
 		<link href="stylesheets/myStyle.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
+		<div>
+			<select ID="sound">
+				<option value="0" selected>Keyboard</option>
+				<option value="1">Organ</option>
+				<option value="2">Acoustic Guitar</option>
+				<option value="3">EDM, bro!</option>
+			</select>
+			<div ID="keyboard" class="keyboard-holder"></div>
+			<div class="keyboard-options">
+				Range [C<span ID="OCTAVE_LOWER">3</span>-B<span ID="OCTAVE_UPPER">5</span>]
+				<input type="button" ID="-_OCTAVE" value="-" />
+				<input type="button" ID="+_OCTAVE" value="+" /><br />
+				<i>(Use left/right arrows to adjust with keyboard)</i>
+			</div>
+		</div>
 		<script src='javascripts/midimain.js'></script>
 		<script src='javascripts/SynthView.js'></script>
 		<script type="text/javascript">
