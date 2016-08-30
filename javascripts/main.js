@@ -29,7 +29,9 @@ function addNewTrack(e) {
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
-	  	+ "		<input type='button' value='down' onclick='down(this);'/>"
+	  	+ "		<a id='down'>"
+		+ "			<img src='images/save.png'>"
+		+ "		</a>"
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
 		+ "	<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
