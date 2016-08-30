@@ -53,7 +53,7 @@ function play(e) {
 	var img = document.createElement('img');
 	img.src = 'images/save.png';
 	a.appendChild(img);
-	c.replaceChild(a, existA);
+	parentLink.replaceChild(a, existA);
 	var track = new Audio(link.href);
 	track.play();
 	
