@@ -53,6 +53,7 @@ function play(e) {
 	a = link;
 	var existA = e.nextElementSibling;
 	var img = document.createElement('img');
+	img.id = 'save';
 	img.src = 'images/save.png';
 	a.appendChild(img);
 	parentLink.replaceChild(a, existA);
