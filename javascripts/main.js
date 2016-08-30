@@ -50,7 +50,7 @@ function play(e) {
 	var a = document.createElement('a');
 	a = link;
 	var b = e.nextElementSibling;
-	c.replaceChild(b, a);
+	c.replaceChild(a, b);
 	var track = new Audio(link.href);
 	track.play();
 	
