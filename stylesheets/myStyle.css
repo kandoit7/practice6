@@ -4,7 +4,8 @@
 		margin: 5px 0px 0px 0px;
 	}
 	div #selectBox {
-		vertical-align: right;	
+		vertical-align: top;
+		text-align: right;
 	}
 	.track {
 		display: inline-block;
