@@ -14,7 +14,8 @@ var canvasd = null;
 canvasd = addEventListener("resize",ddcanvas(this));
 //canvas drag & drop
 function ddcanvas(e){
-	console.log(canvas[0]);
+	console.log(e);
+	/*
 	var ctx = canvas[0].getContext('2d');
 	var w = canvas[0].width;
 	var h = canvas[0].height;
@@ -59,7 +60,7 @@ function ddcanvas(e){
 		reader.readAsArrayBuffer(e.dataTransfer.files[0]);
 	
 	});
-
+	*/
 }
 
 //all track Recording function
