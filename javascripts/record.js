@@ -12,6 +12,7 @@ var deviceSF = document.getElementById('deviceSF');
 
 function deviceSelect(e){
 	var allsel = document.querySelectorAll('select');
+	console.log(allsel);
 	if(deviceSF.checked === true){
 		console.log(deviceSF.checked);
 		allsel.hidden = true;
