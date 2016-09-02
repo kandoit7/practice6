@@ -166,7 +166,7 @@ function initAudio(index) {
 function gotDevices(deviceInfos) {
 	
 	var masterInputSelector = document.createElement('select');
-	masterInputSelector.hidden = false;
+	masterInputSelector.hidden = true;
 	
 	for (var i = 0; i !== deviceInfos.length; ++i) {
 		var deviceInfo = deviceInfos[i];
