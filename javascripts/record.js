@@ -39,8 +39,8 @@ window.onload=function(){
 			//decode the audio data
 				audio.decodeAudioData(e.target.result,function(buffer){
 					source.buffer = buffer;
-					console.log(ctx);
-					console.log(buffer[0]);
+					console.log(buffer);
+					console.log(buffer.channel[0]);
 					drawBuffer(w,h,ctx,buffer);
 				});
 			} else {
