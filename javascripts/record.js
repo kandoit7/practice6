@@ -14,11 +14,15 @@ function deviceSelect(e){
 	var allsel = document.querySelectorAll('select');
 	console.log(allsel);
 	if(deviceSF.checked === true){
-		console.log(deviceSF.checked);
-		allsel.hidden = true;
+		for(var i = 0; i < allsel.length; i++)
+		{
+			allsel[i].hidden = true;
+		}
 	} else {
-		console.log(deviceSF.checked);
-		allsel.hidden = false;
+		for(var i = 0; i < allsel.length; i++)
+		{
+			allsel[i].hidden = false;
+		}
 	}
 };
 
