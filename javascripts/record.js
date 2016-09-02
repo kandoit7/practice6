@@ -30,8 +30,8 @@ function addNewTrack(e) {
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
-	  	+ "		<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
-	  	+ "		<a id='down'></a>"
+	  	+ "		<img id='record" + tagIndex + "'" + "src='images/recordOff.png' onclick='toggleRecording(this);'>"
+	  	+ "		<a id='down'></pa>"
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
 		+ "	<select id='change'></select>"
@@ -71,7 +71,7 @@ function toggleRecording( e ) {
 		// stop recording
 		e.parentNode.parentNode.src.stop();
 		e.classList.remove("recording");
-		imgchange.src = 'images/mic.png';
+		imgchange.src = 'images/recordOff.png';
 		
 		//draw signal on canvas && buffer link create
 		e.parentNode.parentNode.src.getBuffers( function(buffers) {
@@ -97,7 +97,7 @@ function toggleRecording( e ) {
 	    		return;
 	
 		e.classList.add("recording");
-		imgchange.src = 'images/micrec.png';
+		imgchange.src = 'images/recordOn.png';
 		e.parentNode.parentNode.src.clear();
 		e.parentNode.parentNode.src.record();
 	}
