@@ -53,7 +53,7 @@ window.onload=function(){
 		}
 		//read the file
 		reader.readAsArrayBuffer(e.dataTransfer.files[0]);
-		drawBuffer( w, h, ctx, source[0] );
+		drawBuffer( w, h, ctx, source.buffer[0] );
 	});
 
 }
