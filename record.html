@@ -9,6 +9,7 @@
 		<div id="AddNewTrack">
 			<img class="plusImg" src="images/plus.png" onclick="addNewTrack(this);">
 			<input type="button" value="AllPlay" onclick="AllPlay(this);"/>
+			<input type='checkbox' id='deviceSF'>
 		</div>
 		
 		<div id="track1">
@@ -16,7 +17,6 @@
 				<img src='images/play.png' onclick='play(this);'/>
 				<img id="record" src="images/recordOff.png" onclick="toggleRecording(this);">
 				<a id='down'></a>
-				<input type='checkbox'>
 			</span>
 			<canvas id="crecord" class='record'></canvas>
 			<select id="change" hidden></select>
