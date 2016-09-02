@@ -49,7 +49,7 @@ window.onload=function(){
 			source.connect(analyser);
 			analyser.connect(audio.destination);
 			//play the song
-			source.noteOn(0);
+			source.start();
 		}
 		//read the file
 		reader.readAsArrayBuffer(e.dataTransfer.files[0]);
