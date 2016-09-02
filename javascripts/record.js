@@ -41,7 +41,7 @@ window.onload=function(){
 					source.buffer = buffer;
 					console.log(buffer);
 					console.log(buffer.getChannelData(0));
-					drawBuffer(w,h,ctx,buffer);
+					drawBuffer(w,h,ctx,buffer.getChannelData(0));
 				});
 			} else {
 				//fallback to the old API
