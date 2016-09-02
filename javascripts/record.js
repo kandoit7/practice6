@@ -39,6 +39,7 @@ window.onload=function(){
 			//decode the audio data
 				audio.decodeAudioData(e.target.result,function(buffer){
 					source.buffer = buffer;
+					drawBuffer( w, h, ctx, buffer[0] );
 				});
 			} else {
 				//fallback to the old API
@@ -53,7 +54,7 @@ window.onload=function(){
 		}
 		//read the file
 		reader.readAsArrayBuffer(e.dataTransfer.files[0]);
-		drawBuffer( w, h, ctx, source.buffer[0] );
+	
 	});
 
 }
