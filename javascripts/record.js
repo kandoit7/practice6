@@ -63,8 +63,6 @@ function play(e) {
 
 // recording button function ( toggle )
 function toggleRecording( e ) {
-	console.log(e.parentNode);
-	console.log(e.parentNode.nextElementSibling);
 	var imgchange = e;
 	var Check = e.parentNode;
 	
@@ -76,13 +74,14 @@ function toggleRecording( e ) {
 		
 		//draw signal on canvas && buffer link create
 		e.parentNode.parentNode.src.getBuffers( function(buffers) {
-			var ci = e.previousElementSibling.id;
+			var ci = e.parentNode.nextElementSibling.id;
+			console.log(ci);
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 			//e.parentNode.src.exportWAV(doneEncoding);
 			e.parentNode.parentNode.src.exportWAV(function(blob) {
 				var good = Recorder.setupDownload( blob );
-				var replace = e.nextElementSibling.nextElementSibling;
+				var replace = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling;
 				var link = document.createElement("a");
 				link.id = "tracklink";
 				link.href = good;
