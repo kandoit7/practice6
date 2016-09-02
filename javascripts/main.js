@@ -5,7 +5,7 @@ function recordTest () {};
 //var audioRecorder = null;
 var test1 = null;
 var recIndex = 0;
-var tagIndex = 3;
+var tagIndex = 2;
 //final process
 var childIndex = 0;
 
