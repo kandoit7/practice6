@@ -12,7 +12,7 @@ var deviceSF = document.getElementById('deviceSF');
 
 //all track Recording function
 function allRecord(){
-	var allrec = document.querySelectorAll('img#record'+*);
+	var allrec = document.querySelectorAll('img#record');
 	console.log(allrec);
 }
 
