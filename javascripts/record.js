@@ -53,7 +53,7 @@ function addNewTrack(e) {
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<img src='images/play.png' onclick='play(this);'/> "
-	  	+ "		<img id='record" + tagIndex + "'" + "src='images/recordOff.png' onclick='toggleRecording(this);'>"
+	  	+ "		<img id='record" + tagIndex + "'" + "class='recordB' src='images/recordOff.png' onclick='toggleRecording(this);'>"
 	  	+ "		<a id='down'></a>"
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
