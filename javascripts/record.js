@@ -30,11 +30,12 @@ function addNewTrack(e) {
 	
 	var tag = "	<span class='track'>track" + tagIndex 
 	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
+	  	+ "		<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
 	  	+ "		<a id='down'></a>"
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
-		+ "	<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
-		+ "<select id='change'></select>"
+		
+		+ "	<select id='change'></select>"
 		+ "	<a></a>";
 	
 	var lastProc = document.getElementById("track"+tagIndex);
