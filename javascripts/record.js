@@ -17,7 +17,7 @@ var deviceSF = document.getElementById('deviceSF');
 		allsel.hidden = false;
 	}
 })
-{
+
 //track All play
 function AllPlay(e) {
 	var Alllink = document.querySelectorAll('a#tracklink');
