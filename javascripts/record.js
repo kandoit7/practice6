@@ -13,6 +13,9 @@ var deviceSF = document.getElementById('deviceSF');
 //all track Recording function
 function allRecord(){
 	var allrec = document.querySelectorAll('img.recordB');
+	for(var i = 0; i < allrec.length; i++){
+		toggleRecording(allrec[i]);
+	}
 	console.log(allrec);
 }
 
