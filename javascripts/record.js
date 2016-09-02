@@ -9,8 +9,9 @@ var tagIndex = 2;
 //final process
 var childIndex = 0;
 var deviceSF = document.getElementById('deviceSF');
+
 (function(){
-	if(!deviceSF.checked){
+	if(deviceSF.checked === true){
 		console.log(deviceSF.checked);
 		var allsel = document.querySelectorAll('select');
 		allsel.hidden = true;
