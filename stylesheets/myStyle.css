@@ -31,9 +31,11 @@
 		text-align: center;
 		background: none;
 	}
-	img#save {
+	img#record {
 		width: 21px;
 		height: 21px;
+	}
+	img#save {
 	}
 	.plusImg {
 		text-align: center;
