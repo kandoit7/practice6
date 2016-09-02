@@ -29,7 +29,7 @@ function addNewTrack(e) {
 	node.insertBefore(newDiv, node.childNodes[7+childIndex]);
 	
 	var tag = "	<span class='track'>track" + tagIndex 
-	  	+ "		<input type='button' value='play' onclick='play(this);'/> "
+	  	+ "		<input type='image' src='images/play.png' value='play' onclick='play(this);'/> "
 	  	+ "		<img id='record" + tagIndex + "'" + "src='images/recordOff.png' onclick='toggleRecording(this);'>"
 	  	+ "		<a id='down'></pa>"
 		+ "	</span>"
