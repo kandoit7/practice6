@@ -10,6 +10,11 @@ var tagIndex = 2;
 var childIndex = 0;
 var deviceSF = document.getElementById('deviceSF');
 
+//all track Recording function
+function allRecord(){
+	var allrec = document.querySelectorAll('img#record'+*);
+	console.log(allrec);
+}
 
 //device select element show/hide
 function deviceSelect(e){
