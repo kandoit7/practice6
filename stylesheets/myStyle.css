@@ -3,6 +3,9 @@
 		height: 110px;
 		margin: 5px 0px 0px 0px;
 	}
+	div #selectBox {
+		vertical-align: right;	
+	}
 	.track {
 		display: inline-block;
 		width: 160px;
@@ -39,8 +42,5 @@
 	select {
 		text-align: bottom;
 		vertical-align: bottom;
-	}
-	div #selectBox {
-		align: right;	
 	}
 	
