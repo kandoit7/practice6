@@ -23,9 +23,6 @@ function AllPlay(e) {
 //add New Track
 function addNewTrack(e) {
 	var newDiv = document.createElement('div');
-	var newSel = document.getElementById('selectBox');
-	
-	newSel.innerHTML =  "<select id='change'></select>";
 	
 	newDiv.id = "track"+tagIndex;
 	var node = e.parentNode.parentNode;
@@ -37,6 +34,7 @@ function addNewTrack(e) {
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
 		+ "	<img id='record" + tagIndex + "'" + "src='images/mic.png' onclick='toggleRecording(this);'>"
+		+ "<select id='change'></select>"
 		+ "	<a></a>";
 	
 	var lastProc = document.getElementById("track"+tagIndex);
