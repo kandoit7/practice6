@@ -15,9 +15,10 @@ var deviceSF = document.getElementById('deviceSF');
 		var allsel = document.querySelectorAll('select');
 		allsel.hidden = true;
 	} else {
+		console.log(deviceSF.checked);
 		allsel.hidden = false;
 	}
-})
+}());
 
 //track All play
 function AllPlay(e) {
