@@ -40,7 +40,7 @@ window.onload=function(){
 				audio.decodeAudioData(e.target.result,function(buffer){
 					source.buffer = buffer;
 					console.log(buffer);
-					console.log(buffer.channel[0]);
+					console.log(buffer.numberOfChannels[0]);
 					drawBuffer(w,h,ctx,buffer);
 				});
 			} else {
