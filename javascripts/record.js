@@ -8,7 +8,16 @@ var recIndex = 0;
 var tagIndex = 2;
 //final process
 var childIndex = 0;
-
+var deviceSF = document.getElementById('deviceSF');
+(function(){
+	if(!deviceSF){
+		var allsel = document.querySelectorAll('select');
+		allsel.hidden = true;
+	} else {
+		allsel.hidden = false;
+	}
+})
+{
 //track All play
 function AllPlay(e) {
 	var Alllink = document.querySelectorAll('a#tracklink');
