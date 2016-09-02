@@ -63,7 +63,7 @@ function play(e) {
 
 // recording button function ( toggle )
 function toggleRecording( e ) {
-	console.log(e);
+	console.log(e.parentNode);
 	var imgchange = e;
 	var Check = e.parentNode;
 	
