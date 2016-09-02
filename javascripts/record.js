@@ -70,17 +70,17 @@ function toggleRecording( e ) {
 	
 	if (e.classList.contains("recording")) {
 		// stop recording
-		e.parentNode.src.stop();
+		e.parentNode.parentNode.src.stop();
 		e.classList.remove("recording");
 		imgchange.src = 'images/mic.png';
 		
 		//draw signal on canvas && buffer link create
-		e.parentNode.src.getBuffers( function(buffers) {
+		e.parentNode.parentNode.src.getBuffers( function(buffers) {
 			var ci = e.previousElementSibling.id;
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 			//e.parentNode.src.exportWAV(doneEncoding);
-			e.parentNode.src.exportWAV(function(blob) {
+			e.parentNode.parentNode.src.exportWAV(function(blob) {
 				var good = Recorder.setupDownload( blob );
 				var replace = e.nextElementSibling.nextElementSibling;
 				var link = document.createElement("a");
@@ -88,19 +88,19 @@ function toggleRecording( e ) {
 				link.href = good;
 				link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
 				recIndex++;
-				e.parentNode.replaceChild(link, replace);
+				e.parentNode.parentNode.replaceChild(link, replace);
 			});
 			
 		});
 	} else {
 		// start recording  
-		if (!e.parentNode.src)
+		if (!e.parentNode.parentNode.src)
 	    		return;
 	
 		e.classList.add("recording");
 		imgchange.src = 'images/micrec.png';
-		e.parentNode.src.clear();
-		e.parentNode.src.record();
+		e.parentNode.parentNode.src.clear();
+		e.parentNode.parentNode.src.record();
 	}
 }
 
