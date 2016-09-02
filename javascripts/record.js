@@ -47,11 +47,11 @@ function addNewTrack(e) {
 //click play button -> play the recorded audio
 function play(e) {
 	console.log(e.parentNode);
-	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
+	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
 	var parentLink = e.parentNode;
 	var a = document.createElement('a');
 	a = link;
-	var existA = e.nextElementSibling;
+	var existA = e.nextElementSibling.nextElementSibling;
 	var img = document.createElement('img');
 	img.id = 'save';
 	img.src = 'images/save.png';
