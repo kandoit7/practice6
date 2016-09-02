@@ -13,6 +13,7 @@ var deviceSF = document.getElementById('deviceSF');
 function deviceSelect(e){
 	var allsel = document.querySelectorAll('select');
 	console.log(allsel);
+	console.log(allsel[0]);
 	if(deviceSF.checked === true){
 		for(var i = 0; i < allsel.length; i++)
 		{
