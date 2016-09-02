@@ -10,7 +10,7 @@ var tagIndex = 2;
 var childIndex = 0;
 var deviceSF = document.getElementById('deviceSF');
 
-(function(){
+function deviceSelect(e){
 	var allsel = document.querySelectorAll('select');
 	if(deviceSF.checked === true){
 		console.log(deviceSF.checked);
@@ -19,7 +19,7 @@ var deviceSF = document.getElementById('deviceSF');
 		console.log(deviceSF.checked);
 		allsel.hidden = false;
 	}
-}());
+};
 
 //track All play
 function AllPlay(e) {
