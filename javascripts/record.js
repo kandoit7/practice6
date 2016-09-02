@@ -17,12 +17,12 @@ function deviceSelect(e){
 	if(deviceSF.checked === true){
 		for(var i = 0; i < allsel.length; i++)
 		{
-			allsel[i].hidden = true;
+			allsel[i].hidden = false;
 		}
 	} else {
 		for(var i = 0; i < allsel.length; i++)
 		{
-			allsel[i].hidden = false;
+			allsel[i].hidden = true;
 		}
 	}
 };
