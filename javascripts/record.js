@@ -41,7 +41,6 @@ function AllPlay(e) {
 	var playlist = [];
 	for( var i = 0; i < Alllink.length; i++ ) {
 		playlist[i] = new Audio(Alllink[i].href);
-		console.log(Alllink[i].href);
 		playlist[i].play();
 	}
 }
