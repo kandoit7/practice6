@@ -119,7 +119,7 @@ function addNewTrack(e) {
 	tagIndex++;
 	childIndex++;
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-	canvasd = document.querySelectorAll('canvas');\
+	canvasd = document.querySelectorAll('canvas');
 	canvasd = addEventListener("resize",ddcanvas(this));
 }
 
