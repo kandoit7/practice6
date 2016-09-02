@@ -11,9 +11,9 @@ var childIndex = 0;
 var deviceSF = document.getElementById('deviceSF');
 
 (function(){
+	var allsel = document.querySelectorAll('select');
 	if(deviceSF.checked === true){
 		console.log(deviceSF.checked);
-		var allsel = document.querySelectorAll('select');
 		allsel.hidden = true;
 	} else {
 		console.log(deviceSF.checked);
