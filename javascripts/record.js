@@ -13,10 +13,10 @@ var deviceSF = document.getElementById('deviceSF');
 //canvas drag & drop
 window.onload=function(){
 	var canvas = document.querySelectorAll('canvas');
-	console.log(canvas);
-	var ctx = canvas.getContext('2d');
-	var w = canvas.width;
-	var h = canvas.height;
+	console.log(canvas[0]);
+	var ctx = canvas[0].getContext('2d');
+	var w = canvas[0].width;
+	var h = canvas[0].height;
 	//create the audio context
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	var source = audio.createBufferSource();
