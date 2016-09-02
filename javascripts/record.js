@@ -8,11 +8,12 @@ var recIndex = 0;
 var tagIndex = 2;
 //final process
 var childIndex = 0;
-var deviceSF = document.getElementById('deviceSF');
 
+var deviceSF = document.getElementById('deviceSF');
+var canvas = document.querySelectorAll('canvas');
+canvas = addEventListener("resize",ddcanvas(this));
 //canvas drag & drop
-window.onload=function(){
-	var canvas = document.querySelectorAll('canvas');
+function ddcanvas(e){
 	console.log(canvas[0]);
 	var ctx = canvas[0].getContext('2d');
 	var w = canvas[0].width;
