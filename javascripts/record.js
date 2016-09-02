@@ -39,7 +39,7 @@ window.onload=function(){
 			//decode the audio data
 				audio.decodeAudioData(e.target.result,function(buffer){
 					source.buffer = buffer;
-					console.log(e);
+					console.log(buffer);
 				});
 			} else {
 				//fallback to the old API
