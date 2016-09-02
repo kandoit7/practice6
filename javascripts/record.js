@@ -11,7 +11,6 @@ var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
 var canvasd = null;
-canvasd = addEventListener("resize",ddcanvas(this));
 //canvas drag & drop
 function ddcanvas(e){
 	console.log(e);
@@ -120,7 +119,8 @@ function addNewTrack(e) {
 	tagIndex++;
 	childIndex++;
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-	canvasd = document.querySelectorAll('canvas');
+	canvasd = document.querySelectorAll('canvas');\
+	canvasd = addEventListener("resize",ddcanvas(this));
 }
 
 //click play button -> play the recorded audio
