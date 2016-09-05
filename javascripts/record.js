@@ -165,7 +165,7 @@ function play(e) {
 	} else {
 		if(e.classList.contains("NoPlaying")){
 			console.log(e.parentNode.nextElementSibling.src);
-			this.track = new Audio(e.parentNode.nextElementSibling.src);
+			this.track = new Audio(e.parentNode.nextElementSibling.src.buffer.getChannelData(0));
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
 			this.track.play();
