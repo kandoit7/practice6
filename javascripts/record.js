@@ -134,7 +134,6 @@ function addNewTrack(e) {
 function play(e) {
 	if(!this.song) {
 		this.song = new Audio();
-		
 	} else {
 		if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 			console.log("no recorded audio");
@@ -159,15 +158,14 @@ function play(e) {
 				e.classList.add("NoPlaying");
 				e.src = 'images/play.png';
 				this.song.pause();
-				this.track.pause();
 			}
 		}
 	}
-	if(!this.track){
-		this.track =  e.parentNode.nextElementSibling.src;
+	if(!e.parentNode.nextElementSibling.src){
+		console.log("no audio Source");
 	} else {
-		if(!e.parentNode.nextElementSibling.src){
-			console.log("no audio Source");
+		if(!this.track){
+			this.track = e.parentNode.nextElementSibling.src;
 		} else {
 			if(e.classList.contains("NoPlaying")){
 				e.classList.remove("NoPlaying");
