@@ -154,7 +154,7 @@ function play(e) {
 		} else {
 			e.classList.add("NoPlaying");
 			e.src = 'images/stop.png';
-			track.stop();
+			track.pause();
 		}
 	}
 	
