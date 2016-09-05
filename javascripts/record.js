@@ -165,9 +165,10 @@ function play(e) {
 	} else {
 		
 		if(e.classList.contains("NoPlaying")){
-			this.track = audioContext.createBufferSource();
+			var audios = new (window.AudioContext||window.webkitAudioContext)();
+			this.track = audios.createBufferSource();
 			this.track = e.parentNode.nextElementSibling.src;
-			this.track.connect(audioContext.destination);
+			this.track.connect(audios.destination);
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
 			this.track.start();
