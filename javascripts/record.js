@@ -137,7 +137,7 @@ function play(e) {
 		var track = null;
 		if(e.classList.contains("NoPlaying")){
 			e.classList.remove("NoPlaying");
-			imgchange.src = 'images/play.png';
+			e.src = 'images/play.png';
 			var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
 			var parentLink = e.parentNode;
 			var a = document.createElement('a');
@@ -153,7 +153,7 @@ function play(e) {
 			track.play();
 		} else {
 			e.classList.add("NoPlaying");
-			imgchange.src = 'images/stop.png';
+			e.src = 'images/stop.png';
 			track.stop();
 		}
 	}
