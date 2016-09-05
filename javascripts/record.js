@@ -124,7 +124,7 @@ function addNewTrack(e) {
 function play(e) {
 	
 	if(!e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling) {
-		console.log(e.parentNode);
+		console.log("no recorded audio");
 	} else {
 		//console.log(e.parentNode);
 		var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
@@ -140,6 +140,7 @@ function play(e) {
 		var track = new Audio(link.href);
 		track.play();
 	}
+	
 	if(!e.parentNode.nextElementSibling.src){
 		console.log("no audio Source");
 	} else {
