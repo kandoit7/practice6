@@ -156,6 +156,34 @@ function play(e) {
 	}
 }
 
+//click play button -> play the recorded audio
+function stop(e) {
+	if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
+		console.log("no recorded audio");
+	} else {
+		var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
+		var parentLink = e.parentNode;
+		var a = document.createElement('a');
+		a = link;
+		var existA = e.nextElementSibling.nextElementSibling;
+		var img = document.createElement('img');
+		img.id = 'save';
+		img.src = 'images/save.png';
+		a.appendChild(img);
+		parentLink.replaceChild(a, existA);
+		var track = new Audio(link.href);
+		track.stop();
+	}
+	
+	if(!e.parentNode.nextElementSibling.src){
+		console.log("no audio Source");
+	} else {
+		var canvasTrack =  e.parentNode.nextElementSibling.src;
+		canvasTrack.stop();
+	}
+}
+
+
 // recording button function ( toggle )
 function toggleRecording( e ) {
 	var imgchange = e;
