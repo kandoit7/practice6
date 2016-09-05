@@ -14,6 +14,11 @@ var deviceSF = document.getElementById('deviceSF');
 //var canvasd = document.querySelectorAll('canvas');
 //canvasd = addEventListener("redraw",ddcanvas(canvasd));
 
+//drag
+function allowDrop(ev) {
+	ev.preventDefault();
+}
+
 //canvas drag & drop
 function dropping(e) {
 	e.preventDefault();
