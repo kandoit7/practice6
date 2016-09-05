@@ -158,7 +158,7 @@ function addNewTrack(e) {
 	  	+ "		<img id='record" + tagIndex + "'" + "class='recordB' src='images/recordOff.png' onclick='toggleRecording(this);'>"
 	  	+ "		<a id='down'></a>"
 		+ "	</span>"
-		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "></canvas>"
+		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "ondrop='dropping(event)' ondragover='allowDrop(event)'></canvas>"
 		+ "	<select id='change'></select>"
 		+ "	<a></a>";
 	
