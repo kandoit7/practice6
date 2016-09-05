@@ -142,7 +142,7 @@ function play(e) {
 			var parentLink = e.parentNode;
 			var a = document.createElement('a');
 			a = link;
-			var existA = e.nextElementSibling.nextElementSibling.nextElementSibling;
+			var existA = e.nextElementSibling.nextElementSibling;
 			var img = document.createElement('img');
 			img.id = 'save';
 			img.src = 'images/save.png';
