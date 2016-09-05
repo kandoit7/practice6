@@ -163,8 +163,11 @@ function play(e) {
 	if(!e.parentNode.nextElementSibling.src){
 		console.log("no audio Source");
 	} else {
+		
 		if(e.classList.contains("NoPlaying")){
-			this.track = e.parentNode.nextElementSibling.src;
+			this.track = audioContext.createBufferSource();
+			this.track.buffer = e.parentNode.nextElementSibling.src;
+			this.track.connect(audioContext.destination);
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
 			this.track.start();
