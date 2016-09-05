@@ -126,7 +126,7 @@ function play(e) {
 	if(!e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling) {
 		console.log(e.parentNode);
 	} else {
-		console.log(e.parentNode);
+		//console.log(e.parentNode);
 		var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
 		var parentLink = e.parentNode;
 		var a = document.createElement('a');
@@ -140,8 +140,10 @@ function play(e) {
 		var track = new Audio(link.href);
 		track.play();
 	}
-	var canvasTrack =  e.parentNode.nextElementSibling.src;
-	if(canvasTrack){
+	if(!e.parentNode.nextElementSibling.src){
+		console.log("no audio Source");
+	} else {
+		var canvasTrack =  e.parentNode.nextElementSibling.src;
 		canvasTrack.start();
 	}
 }
