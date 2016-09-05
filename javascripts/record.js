@@ -87,29 +87,19 @@ function deviceSelect(e){
 
 //track All play
 function AllPlay(e) {
-	var Alllink = document.querySelectorAll('a#tracklink');
-	console.log(Alllink);
-	var allCanTrack = document.querySelectorAll('canvas');
-	console.log(allCanTrack);
-	var playlist = [];
 	
-	if(!playlist){
-		console.log("no recorded audio");	
-	} else {
-		for( var i = 0; i < Alllink.length; i++ ) {
-			playlist[i] = new Audio(Alllink[i].href);
-			playlist[i].play();
-		}
+	var Alllink = document.querySelectorAll('a#tracklink');
+	var playlist = [];
+	for( var i = 0; i < Alllink.length; i++ ) {
+		playlist[i] = new Audio(Alllink[i].href);
+		playlist[i].play();
 	}
 	
+	var allCanTrack = document.querySelectorAll('canvas');
 	var playClist = [];
-	if(!playClist) {
-		console.log("no audio source");
-	} else {
-		for( var i = 0; i < allCanTrack.length; i++ ) {
-			playClist[i] = allCanTrack[i].src;
-			playClist[i].start();
-		}
+	for( var i = 0; i < allCanTrack.length; i++ ) {
+		playClist[i] = allCanTrack[i].src;
+		playClist[i].start();
 	}
 }
 
