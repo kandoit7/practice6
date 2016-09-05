@@ -164,15 +164,15 @@ function play(e) {
 		console.log("no audio Source");
 	} else {
 		if(e.classList.contains("NoPlaying")){
-			this.track = audioContext.createMediaElementSource(e.parentNode.nextElementSibling.src);
+			this.track = new Audio(e.parentNode.nextElementSibling.src);
 			console.log(this.track);
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
-			this.track.play(0);
+			this.track.play();
 		} else {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
-			this.track.stop(0);
+			this.track.pause();
 		}
 	}
 }
