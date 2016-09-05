@@ -10,8 +10,7 @@ var tagIndex = 2;
 var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
-var canvasd = null;
-//canvasd = document.querySelectorAll('canvas');
+var canvasd = document.querySelectorAll('canvas');
 //canvasd = addEventListener("resize",ddcanvas(this));
 
 //canvas drag & drop
@@ -121,6 +120,7 @@ function addNewTrack(e) {
 	tagIndex++;
 	childIndex++;
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+	canvasd = document.querySelectorAll('canvas');
 }
 
 //click play button -> play the recorded audio
