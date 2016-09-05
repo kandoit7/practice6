@@ -184,6 +184,8 @@ function toggleRecording( e ) {
 //Audio recording check
 function initAudio(index) {
 
+	canvasd = document.querySelectorAll('canvas');
+	canvasd = addEventListener("resize",ddcanvas(this));
 	var audioSource = index.value;
 	var idconfirm = index.parentNode;
 	var recordCloud = document.createElement('a');
@@ -225,8 +227,6 @@ function initAudio(index) {
 //input Device Check
 function gotDevices(deviceInfos) {
 	
-	canvasd = document.querySelectorAll('canvas');
-	canvasd = addEventListener("resize",ddcanvas(this));
 	var masterInputSelector = document.createElement('select');
 	masterInputSelector.hidden = true;
 	
