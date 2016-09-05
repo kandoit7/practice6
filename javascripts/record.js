@@ -25,7 +25,7 @@ function ddcanvas(e){
 	var analyser = audio.createScriptProcessor(1024,1,1);
 	
 	//fill the canvas first
-	ctx.fillStyle = "orange";
+	ctx.fillStyle = "555";
 	ctx.fillRect(0,0,w,h);
 	
 	//add the drop event handlers
