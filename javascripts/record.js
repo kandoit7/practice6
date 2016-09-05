@@ -11,7 +11,7 @@ var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
 var canvasd = document.querySelectorAll('canvas');
-//canvasd = addEventListener("resize",ddcanvas(this));
+canvasd = addEventListener("redraw",ddcanvas(this));
 
 //canvas drag & drop
 function ddcanvas(e){
