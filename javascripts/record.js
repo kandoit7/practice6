@@ -14,7 +14,7 @@ var canvasd = null;
 //canvas drag & drop
 function ddcanvas(e){
 	console.log(e);
-	/*
+	
 	var ctx = canvas[0].getContext('2d');
 	var w = canvas[0].width;
 	var h = canvas[0].height;
@@ -24,7 +24,7 @@ function ddcanvas(e){
 	var analyser = audio.createScriptProcessor(1024,1,1);
 	
 	//fill the canvas first
-	ctx.fillStyle = '#555';
+	ctx.fillStyle = "orange";
 	ctx.fillRect(0,0,w,h);
 	
 	//add the drop event handlers
@@ -59,7 +59,7 @@ function ddcanvas(e){
 		reader.readAsArrayBuffer(e.dataTransfer.files[0]);
 	
 	});
-	*/
+	
 }
 
 //all track Recording function
