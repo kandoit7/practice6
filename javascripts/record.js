@@ -58,7 +58,6 @@ function dropping(e) {
 	reader.readAsArrayBuffer(e.dataTransfer.files[0]);
 	//var playbtn = document.getElementById(e.toElement);
 	e.target.src = source;
-	console.log(e.target.src);
 }
 
 //all track Recording function
@@ -165,14 +164,15 @@ function play(e) {
 		console.log("no audio Source");
 	} else {
 		if(e.classList.contains("NoPlaying")){
-			this.track = e.parentNode.nextElementSibling.src;
+			this.track = AudioContext.createMediaElementSource(e.parentNode.nextElementSibling.src);
+			console.log(this.track);
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
-			this.track.loopStart = 1;
+			this.track.play(0);
 		} else {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
-			this.track.loopEnd = 0;
+			this.track.stop(0);
 		}
 	}
 }
