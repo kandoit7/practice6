@@ -167,8 +167,10 @@ function play(e) {
 		if(e.classList.contains("NoPlaying")){
 			var audios = new (window.AudioContext||window.webkitAudioContext)();
 			this.track = audios.createBufferSource();
+			this.gainNode = audios.createGain();
 			this.track = e.parentNode.nextElementSibling.src;
-			this.track.connect(audios.destination);
+			this.track.connect(this.gainNode);
+			this.gainNode.connect(audios.destination);
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
 			this.track.start();
