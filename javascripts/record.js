@@ -22,7 +22,13 @@ function allowDrop(ev) {
 //canvas drag & drop
 function dropping(e) {
 	e.preventDefault();
-	console.log(e);
+	var ctx = e.toElement.getContext('2d');
+	var w = ctx.width;
+	var h = ctx.height;
+	//fill the canvas first
+	ctx.fillStyle = "555";
+	ctx.fillRect(0,0,w,h);
+	
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	var source = audio.createBufferSource();
 	var analyser = audio.createScriptProcessor(1024,1,1);
