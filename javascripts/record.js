@@ -168,12 +168,11 @@ function play(e) {
 			this.track = e.parentNode.nextElementSibling.src;
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
-			this.track.start(0);
+			this.track.loopStart = 1;
 		} else {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
-			this.track.stop(0);
-			this.track = null;
+			this.track.loopEnd = 0;
 		}
 	}
 }
