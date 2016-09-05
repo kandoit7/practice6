@@ -134,19 +134,28 @@ function play(e) {
 	if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 		console.log("no recorded audio");
 	} else {
-		var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
-		var parentLink = e.parentNode;
-		var a = document.createElement('a');
-		a = link;
-		var existA = e.nextElementSibling.nextElementSibling;
-		var img = document.createElement('img');
-		img.id = 'save';
-		img.src = 'images/save.png';
-		a.appendChild(img);
-		parentLink.replaceChild(a, existA);
-		console.log(a);
-		var track = new Audio(link.href);
-		track.play();
+		var track = null;
+		if(e.classList.contains("NoPlaying")){
+			e.classList.remove("NoPlaying");
+			imgchange.src = 'images/play.png';
+			var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
+			var parentLink = e.parentNode;
+			var a = document.createElement('a');
+			a = link;
+			var existA = e.nextElementSibling.nextElementSibling;
+			var img = document.createElement('img');
+			img.id = 'save';
+			img.src = 'images/save.png';
+			a.appendChild(img);
+			parentLink.replaceChild(a, existA);
+			console.log(a);
+			track = new Audio(link.href);
+			track.play();
+		} else {
+			e.classList.add("NoPlaying");
+			imgchange.src = 'images/stop.png';
+			track.stop();
+		}
 	}
 	
 	if(!e.parentNode.nextElementSibling.src){
@@ -156,17 +165,6 @@ function play(e) {
 		canvasTrack.start();
 	}
 }
-
-//click stop button -> play the recorded audio
-function stop(e) {
-
-	var link = e.nextElementSibling;
-	console.log(link);
-	
-	var canvasTrack =  e.parentNode.nextElementSibling.src;
-	canvasTrack.stop();
-}
-
 
 // recording button function ( toggle )
 function toggleRecording( e ) {
