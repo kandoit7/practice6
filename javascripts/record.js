@@ -10,13 +10,18 @@ var tagIndex = 2;
 var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
+
 //var canvasd = document.querySelectorAll('canvas');
 //canvasd = addEventListener("redraw",ddcanvas(canvasd));
 
 //canvas drag & drop
 function dropping(e) {
-	console.log(e);
 	e.preventDefault();
+	console.log(e);
+	var audio = new (window.AudioContext||window.webkitAudioContext)();
+	var source = audio.createBufferSource();
+	var analyser = audio.createScriptProcessor(1024,1,1);
+	
 	//create the file reader to read the audio file dropped
 	var reader = new FileReader();
 	reader.onload = function(e){
