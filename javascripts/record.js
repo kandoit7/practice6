@@ -164,23 +164,18 @@ function play(e) {
 	if(!e.parentNode.nextElementSibling.src){
 		console.log("no audio Source");
 	} else {
-		if(!this.track){
+		if(e.classList.contains("NoPlaying")){
 			this.track = e.parentNode.nextElementSibling.src;
+			e.classList.remove("NoPlaying");
+			e.src = 'images/stop.png';
+			this.track.start(0);
 		} else {
-			if(e.classList.contains("NoPlaying")){
-				e.classList.remove("NoPlaying");
-				e.src = 'images/stop.png';
-				this.track.start(0);
-			} else {
-				e.classList.add("NoPlaying");
-				e.src = 'images/play.png';
-				this.track.stop(0);
-				console.log(this.track);
-			}
+			e.classList.add("NoPlaying");
+			e.src = 'images/play.png';
+			this.track.stop(0);
+			console.log(this.track);
 		}
 	}
-	
-	
 }
 
 // recording button function ( toggle )
