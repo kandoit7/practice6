@@ -11,10 +11,12 @@ var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
 var canvasd = null;
+//canvasd = document.querySelectorAll('canvas');
+//canvasd = addEventListener("resize",ddcanvas(this));
 
 //canvas drag & drop
 function ddcanvas(e){
-	console.log(e);
+	console.log(e.parentNode);
 	
 	var ctx = canvasd[0].getContext('2d');
 	var w = canvasd[0].width;
@@ -118,8 +120,6 @@ function addNewTrack(e) {
 	tagIndex++;
 	childIndex++;
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-	canvasd = document.querySelectorAll('canvas');
-	canvasd = addEventListener("resize",ddcanvas(this));
 }
 
 //click play button -> play the recorded audio
@@ -184,8 +184,6 @@ function toggleRecording( e ) {
 //Audio recording check
 function initAudio(index) {
 
-	canvasd = document.querySelectorAll('canvas');
-	canvasd = addEventListener("resize",ddcanvas(this));
 	var audioSource = index.value;
 	var idconfirm = index.parentNode;
 	var recordCloud = document.createElement('a');
