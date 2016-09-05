@@ -132,6 +132,7 @@ function addNewTrack(e) {
 
 //click play button -> play the recorded audio
 function play(e) {
+	this.song = new Audio();
 	if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 		console.log("no recorded audio");
 	} else {
@@ -149,12 +150,12 @@ function play(e) {
 			a.appendChild(img);
 			parentLink.replaceChild(a, existA);
 			console.log(a);
-			this.track = new Audio(link.href);
-			this.track.play();
+			this.song.src = link.href;
+			this.song.play();
 		} else {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
-			this.track.pause();
+			this.song.pause();
 		}
 	}
 	
