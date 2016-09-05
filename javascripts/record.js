@@ -98,8 +98,10 @@ function AllPlay(e) {
 	var allCanTrack = document.querySelectorAll('canvas');
 	var playClist = [];
 	for( var i = 0; i < allCanTrack.length; i++ ) {
-		playClist[i] = allCanTrack[i].src;
-		playClist[i].start();
+		if(allCanTrack[i].src) {
+			playClist[i] = allCanTrack[i].src;
+			playClist[i].start();
+		}
 	}
 }
 
