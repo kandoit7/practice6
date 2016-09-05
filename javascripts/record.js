@@ -22,6 +22,7 @@ function allowDrop(ev) {
 //canvas drag & drop
 function dropping(e) {
 	e.preventDefault();
+	console.log(e.toElement);
 	var ctx = e.toElement.getContext('2d');
 	var w = ctx.width;
 	var h = ctx.height;
@@ -40,7 +41,6 @@ function dropping(e) {
 		//decode the audio data
 			audio.decodeAudioData(e.target.result,function(buffer){
 				source.buffer = buffer;
-				console.log(buffer);
 				console.log(buffer.getChannelData(0));
 				drawBuffer(w,h,ctx,buffer.getChannelData(0));
 			});
