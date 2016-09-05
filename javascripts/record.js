@@ -22,27 +22,28 @@ function allowDrop(ev) {
 //canvas drag & drop
 function dropping(e) {
 	e.preventDefault();
-	console.log(e.toElement);
-	var ctx = e.toElement.getContext('2d');
-	var w = ctx.width;
-	var h = ctx.height;
-	//fill the canvas first
-	ctx.fillStyle = "555";
-	ctx.fillRect(0,0,w,h);
 	
+	var ctx = e.toElement.getContext('2d');
+	var w = e.toElement.width;
+	var h = e.toElement.height;
+	
+	//create audio node
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	var source = audio.createBufferSource();
 	var analyser = audio.createScriptProcessor(1024,1,1);
+	
+	//fill the canvas first
+	ctx.fillStyle = "555";
+	ctx.fillRect(0,0,w,h);
 	
 	//create the file reader to read the audio file dropped
 	var reader = new FileReader();
 	reader.onload = function(e){
 		if(audio.decodeAudioData){
-		//decode the audio data
+			//decode the audio data
 			audio.decodeAudioData(e.target.result,function(buffer){
 				source.buffer = buffer;
-				console.log(buffer.getChannelData(0));
-				drawBuffer(w,h,ctx,buffer.getChannelData(0));
+				drawBuffer(w, h, ctx, buffer.getChannelData(0));
 			});
 		} else {
 			//fallback to the old API
