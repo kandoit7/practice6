@@ -124,17 +124,21 @@ function addNewTrack(e) {
 function play(e) {
 	console.log(e.parentNode);
 	var link = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.cloneNode(true);
-	var parentLink = e.parentNode;
-	var a = document.createElement('a');
-	a = link;
-	var existA = e.nextElementSibling.nextElementSibling;
-	var img = document.createElement('img');
-	img.id = 'save';
-	img.src = 'images/save.png';
-	a.appendChild(img);
-	parentLink.replaceChild(a, existA);
-	var track = new Audio(link.href);
-	track.play();
+	if(!link) {
+		return;
+	} else {
+		var parentLink = e.parentNode;
+		var a = document.createElement('a');
+		a = link;
+		var existA = e.nextElementSibling.nextElementSibling;
+		var img = document.createElement('img');
+		img.id = 'save';
+		img.src = 'images/save.png';
+		a.appendChild(img);
+		parentLink.replaceChild(a, existA);
+		var track = new Audio(link.href);
+		track.play();
+	}
 	var canvasTrack =  e.parentNode.nextElementSibling.src;
 	if(canvasTrack){
 		canvasTrack.start();
