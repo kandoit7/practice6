@@ -1,6 +1,6 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
 
-var track = null;
+//var track = null;
 function recordTest () {};
 
 //var audioRecorder = null;
@@ -149,12 +149,12 @@ function play(e) {
 			a.appendChild(img);
 			parentLink.replaceChild(a, existA);
 			console.log(a);
-			track = new Audio(link.href);
-			track.play();
+			this.track = new Audio(link.href);
+			this.track.play();
 		} else {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
-			track.pause();
+			this.track.pause();
 		}
 	}
 	
