@@ -144,6 +144,7 @@ function play(e) {
 		img.src = 'images/save.png';
 		a.appendChild(img);
 		parentLink.replaceChild(a, existA);
+		console.log(a);
 		var track = new Audio(link.href);
 		track.play();
 	}
@@ -175,12 +176,8 @@ function stop(e) {
 		track.stop();
 	}
 	
-	if(!e.parentNode.nextElementSibling.src){
-		console.log("no audio Source");
-	} else {
-		var canvasTrack =  e.parentNode.nextElementSibling.src;
-		canvasTrack.stop();
-	}
+	var canvasTrack =  e.parentNode.nextElementSibling.src;
+	canvasTrack.stop();
 }
 
 
