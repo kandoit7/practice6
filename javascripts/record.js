@@ -173,7 +173,7 @@ function play(e) {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
 			this.track.stop(0);
-			console.log(this.track);
+			this.track.clear();
 		}
 	}
 }
