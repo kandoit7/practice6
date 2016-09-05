@@ -176,7 +176,7 @@ function play(e) {
 			} else {
 				e.classList.add("NoPlaying");
 				e.src = 'images/play.png';
-				this.track.pause();
+				this.track.stop();
 			}
 		}
 	}
