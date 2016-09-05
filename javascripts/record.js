@@ -134,6 +134,7 @@ function addNewTrack(e) {
 function play(e) {
 	if(!this.song) {
 		this.song = new Audio();
+		this.track =  e.parentNode.nextElementSibling.src;
 	} else {
 		if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 			console.log("no recorded audio");
@@ -151,23 +152,23 @@ function play(e) {
 				img.src = 'images/save.png';
 				a.appendChild(img);
 				parentLink.replaceChild(a, existA);
-				console.log(a);
 				this.song.src = link.href;
 				this.song.play();
+				if(!e.parentNode.nextElementSibling.src){
+					console.log("no audio Source");
+				} else {
+					this.track.start();
+				}
 			} else {
 				e.classList.add("NoPlaying");
 				e.src = 'images/play.png';
 				this.song.pause();
+				this.track.pause();
 			}
 		}
 	}
 	
-	if(!e.parentNode.nextElementSibling.src){
-		console.log("no audio Source");
-	} else {
-		var canvasTrack =  e.parentNode.nextElementSibling.src;
-		canvasTrack.start();
-	}
+	
 }
 
 // recording button function ( toggle )
