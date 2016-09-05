@@ -11,6 +11,7 @@ var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
 var canvasd = null;
+
 //canvas drag & drop
 function ddcanvas(e){
 	console.log(e);
@@ -57,9 +58,7 @@ function ddcanvas(e){
 		}
 		//read the file
 		reader.readAsArrayBuffer(e.dataTransfer.files[0]);
-	
 	});
-	
 }
 
 //all track Recording function
@@ -226,6 +225,8 @@ function initAudio(index) {
 //input Device Check
 function gotDevices(deviceInfos) {
 	
+	canvasd = document.querySelectorAll('canvas');
+	canvasd = addEventListener("resize",ddcanvas(this));
 	var masterInputSelector = document.createElement('select');
 	masterInputSelector.hidden = true;
 	
