@@ -121,6 +121,7 @@ function addNewTrack(e) {
 	childIndex++;
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 	canvasd = document.querySelectorAll('canvas');
+	canvasd = addEventListener("redraw",ddcanvas(canvasd));
 }
 
 //click play button -> play the recorded audio
