@@ -170,15 +170,12 @@ function play(e) {
 			if(e.classList.contains("NoPlaying")){
 				e.classList.remove("NoPlaying");
 				e.src = 'images/stop.png';
-				if(!this.track.start){
-					this.track.start(0);
-				} else {
-					this.track.play();
-				}
+				this.track.start(0);
 			} else {
 				e.classList.add("NoPlaying");
 				e.src = 'images/play.png';
 				this.track.stop(0);
+				console.log(this.track);
 			}
 		}
 	}
