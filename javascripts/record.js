@@ -56,7 +56,7 @@ function dropping(e) {
 	//read the file
 	reader.readAsArrayBuffer(e.dataTransfer.files[0]);
 	//var playbtn = document.getElementById(e.toElement);
-	console.log(ctx);
+	console.log(e);
 }
 
 //all track Recording function
