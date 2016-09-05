@@ -9,6 +9,7 @@
 		<div id="AddNewTrack">
 			<img class="plusImg" src="images/plus.png" onclick="addNewTrack(this);">
 			<input type="button" value="AllPlay" onclick="AllPlay(this);"/>
+			<input type="button" value="Allstop" onclick="AllStop(this);"/>
 			<input type='checkbox' id='deviceSF' onclick='deviceSelect();'>
 			<input type='button' id='allRecord' onclick='allRecord();'>
 		</div>
@@ -16,6 +17,7 @@
 		<div id="track1">
 			<span class='track'>track1
 				<img src='images/play.png' onclick='play(this);'/>
+				<img src='images/stop.png' onclick='stop(this);'/>
 				<img id="record" class='recordB' src="images/recordOff.png" onclick="toggleRecording(this);">
 				<a id='down'></a>
 			</span>
