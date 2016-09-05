@@ -51,7 +51,7 @@ function dropping(e) {
 		source.connect(analyser);
 		analyser.connect(audio.destination);
 		//play the song
-		source.start();
+		//source.start();
 	}
 	//read the file
 	reader.readAsArrayBuffer(e.dataTransfer.files[0]);
@@ -93,6 +93,7 @@ function AllPlay(e) {
 		playlist[i] = new Audio(Alllink[i].href);
 		playlist[i].play();
 	}
+	
 }
 
 //add New Track
@@ -134,7 +135,10 @@ function play(e) {
 	parentLink.replaceChild(a, existA);
 	var track = new Audio(link.href);
 	track.play();
-	
+	var canvasTrack =  e.parentNode.nextElementSibling.src;
+	if(canvasTrack){
+		canvasTrack.start();
+	}
 }
 
 // recording button function ( toggle )
