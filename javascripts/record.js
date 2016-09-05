@@ -10,13 +10,43 @@ var tagIndex = 2;
 var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
-var canvasd = document.querySelectorAll('canvas');
-canvasd = addEventListener("redraw",ddcanvas(canvasd(this)));
+//var canvasd = document.querySelectorAll('canvas');
+//canvasd = addEventListener("redraw",ddcanvas(canvasd));
 
 //canvas drag & drop
+function dropping(e) {
+	console.log(e);
+	e.preventDefault();
+	//create the file reader to read the audio file dropped
+	var reader = new FileReader();
+	reader.onload = function(e){
+		if(audio.decodeAudioData){
+		//decode the audio data
+			audio.decodeAudioData(e.target.result,function(buffer){
+				source.buffer = buffer;
+				console.log(buffer);
+				console.log(buffer.getChannelData(0));
+				drawBuffer(w,h,ctx,buffer.getChannelData(0));
+			});
+		} else {
+			//fallback to the old API
+			source.buffer = audio.createBuffer(e.target.result,true);
+		}
+		//connect to the destination and our analyser
+		source.connect(audio.destination);
+		source.connect(analyser);
+		analyser.connect(audio.destination);
+		//play the song
+		source.start();
+	}
+	//read the file
+	reader.readAsArrayBuffer(e.dataTransfer.files[0]);
+}
+
+/*
 function ddcanvas(e){
 	console.log(e);
-	/*
+
 	var ctx = canvasd[0].getContext('2d');
 	var w = canvasd[0].width;
 	var h = canvasd[0].height;
@@ -60,8 +90,8 @@ function ddcanvas(e){
 		//read the file
 		reader.readAsArrayBuffer(e.dataTransfer.files[0]);
 	});
-	*/
 }
+*/
 
 //all track Recording function
 function allRecord(){
@@ -120,8 +150,6 @@ function addNewTrack(e) {
 	tagIndex++;
 	childIndex++;
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-	canvasd = document.querySelectorAll('canvas');
-	canvasd = addEventListener("redraw",ddcanvas(canvasd));
 }
 
 //click play button -> play the recorded audio
