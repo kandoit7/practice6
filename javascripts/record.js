@@ -1,5 +1,6 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
 
+var track = null;
 function recordTest () {};
 
 //var audioRecorder = null;
@@ -134,7 +135,6 @@ function play(e) {
 	if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 		console.log("no recorded audio");
 	} else {
-		var track = null;
 		if(e.classList.contains("NoPlaying")){
 			e.classList.remove("NoPlaying");
 			e.src = 'images/play.png';
@@ -154,7 +154,7 @@ function play(e) {
 		} else {
 			e.classList.add("NoPlaying");
 			e.src = 'images/stop.png';
-			track.pause();
+			console.log(track);
 		}
 	}
 	
