@@ -166,7 +166,7 @@ function play(e) {
 		
 		if(e.classList.contains("NoPlaying")){
 			this.track = audioContext.createBufferSource();
-			this.track.buffer = e.parentNode.nextElementSibling.src;
+			this.track = e.parentNode.nextElementSibling.src;
 			this.track.connect(audioContext.destination);
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
