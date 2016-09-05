@@ -52,10 +52,10 @@ function dropping(e) {
 		analyser.connect(audio.destination);
 		//play the song
 		source.start();
-		console.log(e);
 	}
 	//read the file
 	reader.readAsArrayBuffer(e.dataTransfer.files[0]);
+	console.log(HTMLAudioElement);
 }
 
 //all track Recording function
