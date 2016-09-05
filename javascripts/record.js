@@ -89,6 +89,7 @@ function deviceSelect(e){
 function AllPlay(e) {
 	var Alllink = document.querySelectorAll('a#tracklink');
 	var allCanTrack = document.querySelectorAll('canvas');
+	
 	var playlist = [];
 	for( var i = 0; i < Alllink.length; i++ ) {
 		playlist[i] = new Audio(Alllink[i].href);
@@ -97,7 +98,7 @@ function AllPlay(e) {
 	var playClist = [];
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		playClist[i] = allCanTrack[i].src;
-		playClist[i].play();
+		playClist[i].start();
 	}
 }
 
