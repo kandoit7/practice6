@@ -123,7 +123,7 @@ function addNewTrack(e) {
 //click play button -> play the recorded audio
 function play(e) {
 	console.log(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href);
-	if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === undefined) {
+	if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 		console.log("no recorded audio");
 	} else {
 		//console.log(e.parentNode);
