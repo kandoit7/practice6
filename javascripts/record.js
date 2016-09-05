@@ -15,7 +15,7 @@ canvasd = addEventListener("redraw",ddcanvas(this));
 
 //canvas drag & drop
 function ddcanvas(e){
-	console.log(e.parentNode);
+	console.log(e);
 	/*
 	var ctx = canvasd[0].getContext('2d');
 	var w = canvasd[0].width;
