@@ -16,9 +16,9 @@ var canvasd = null;
 function ddcanvas(e){
 	console.log(e);
 	
-	var ctx = canvas[0].getContext('2d');
-	var w = canvas[0].width;
-	var h = canvas[0].height;
+	var ctx = canvasd[0].getContext('2d');
+	var w = canvasd[0].width;
+	var h = canvasd[0].height;
 	//create the audio context
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	var source = audio.createBufferSource();
