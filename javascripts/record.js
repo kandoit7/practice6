@@ -91,14 +91,18 @@ function AllPlay(e) {
 	var allCanTrack = document.querySelectorAll('canvas');
 	
 	var playlist = [];
-	for( var i = 0; i < Alllink.length; i++ ) {
-		playlist[i] = new Audio(Alllink[i].href);
-		playlist[i].play();
+	if(playlist === null) {
+		for( var i = 0; i < Alllink.length; i++ ) {
+			playlist[i] = new Audio(Alllink[i].href);
+			playlist[i].play();
+		}
 	}
 	var playClist = [];
-	for( var i = 0; i < allCanTrack.length; i++ ) {
-		playClist[i] = allCanTrack[i].src;
-		playClist[i].start();
+	if(playClist) {
+		for( var i = 0; i < allCanTrack.length; i++ ) {
+			playClist[i] = allCanTrack[i].src;
+			playClist[i].start();
+		}
 	}
 }
 
