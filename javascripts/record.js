@@ -168,7 +168,7 @@ function play(e) {
 			var audios = new (window.AudioContext||window.webkitAudioContext)();
 			this.track = audios.createBufferSource();
 			this.gainNode = audios.createGain();
-			this.track = e.parentNode.nextElementSibling.src;
+			this.track.buffer = e.parentNode.nextElementSibling.src.buffer;
 			this.track.connect(this.gainNode);
 			this.gainNode.connect(audios.destination);
 			e.classList.remove("NoPlaying");
