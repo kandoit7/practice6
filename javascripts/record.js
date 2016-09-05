@@ -98,7 +98,7 @@ function AllPlay(e) {
 		}
 	}
 	var playClist = [];
-	if(playClist) {
+	if(playClist === null) {
 		for( var i = 0; i < allCanTrack.length; i++ ) {
 			playClist[i] = allCanTrack[i].src;
 			playClist[i].start();
