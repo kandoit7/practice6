@@ -40,7 +40,6 @@ function dropping(e) {
 			//decode the audio data
 			audio.decodeAudioData(e.target.result,function(buffer){
 				source.buffer = buffer;
-				console.log(buffer.parentNode);
 				drawBuffer(w, h, ctx, buffer.getChannelData(0));
 			});
 		} else {
@@ -53,6 +52,8 @@ function dropping(e) {
 		analyser.connect(audio.destination);
 		//play the song
 		source.start();
+		console.log(source);
+		console.log(source.parentNode);
 	}
 	//read the file
 	reader.readAsArrayBuffer(e.dataTransfer.files[0]);
