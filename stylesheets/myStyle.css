@@ -2,7 +2,9 @@
 		vertical-align:bottom;
 		margin: 5px 0px 0px 0px;
 	}
+	
 	.track {
+		margin: 0px;
 		display: inline-block;
 		width: 160px;
 		height: 100px;
@@ -11,6 +13,7 @@
 	}
 	
 	canvas {
+		margin: 0px;
 		width: 450px;
 		height: 100px;
 		background: #202020; 
@@ -18,10 +21,12 @@
 		color: white;
 		vertical-align: bottom;
 	}
+	
 	#audioSource{
 		width: 120px;
 		vertical-align: bottom;
-	} 
+	}
+	
 	img {
 		vertical-align: bottom;
 		text-align: center;
@@ -29,17 +34,21 @@
 		width: 21px;
 		height: 21px;
 	}
+	
 	img#record {
 		width: 21px;
 		height: 21px;
 	}
+	
 	img#save {
 	}
+	
 	.plusImg {
 		text-align: center;
 		margin-left:auto;
 		margin-right:auto;
 	}
+	
 	select {
 		text-align: bottom;
 		vertical-align: bottom;
