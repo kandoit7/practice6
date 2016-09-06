@@ -105,6 +105,26 @@ function AllPlay(e) {
 	}
 }
 
+//track All play
+function AllStop(e) {
+	
+	var Alllink = document.querySelectorAll('a#tracklink');
+	var playlist = [];
+	for( var i = 0; i < Alllink.length; i++ ) {
+		playlist[i] = new Audio(Alllink[i].href);
+		playlist[i].pause();
+	}
+	
+	var allCanTrack = document.querySelectorAll('canvas');
+	var playClist = [];
+	for( var i = 0; i < allCanTrack.length; i++ ) {
+		if(allCanTrack[i].src) {
+			playClist[i] = allCanTrack[i].src;
+			playClist[i].stop();
+		}
+	}
+}
+
 //add New Track
 function addNewTrack(e) {
 	var newDiv = document.createElement('div');
