@@ -97,14 +97,14 @@ function AllPlay(e) {
 	var allCanTrack = document.querySelectorAll('canvas');
 	e.playClist = [];
 	e.gainList = [];
-	e.audio = new (window.AudioContext||window.webkitAudioContext)();
+	//e.audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
-			e.playClist[i] = e.audio.createBufferSource();
-			e.gainList[i] = e.audio.createGain();
+			e.playClist[i] = audioContext.createBufferSource();
+			e.gainList[i] = audioContext.createGain();
 			e.playClist[i].buffer = allCanTrack[i].src.buffer;
 			e.playClist[i].connect(e.gainList[i]);
-			e.gainList[i].connect(e.audio.destination);
+			e.gainList[i].connect(audioContext.destination);
 			e.playClist[i].start();
 		}
 	}
@@ -125,8 +125,8 @@ function AllStop(e) {
 		if(allCanTrack[i].src) {
 			playClist[i].stop();
 		}
-		if(i === (allCanTrack.length - 1)
-			e.previousElementSibling.audio.close();
+		//if(i === (allCanTrack.length - 1)
+		//	e.previousElementSibling.audio.close();
 	}
 }
 
@@ -190,12 +190,12 @@ function play(e) {
 	} else {
 		
 		if(e.classList.contains("NoPlaying")){
-			this.audios = new (window.AudioContext||window.webkitAudioContext)();
-			this.track = audios.createBufferSource();
-			this.gainNode = audios.createGain();
+			//this.audios = new (window.AudioContext||window.webkitAudioContext)();
+			this.track = audioContext.createBufferSource();
+			this.gainNode = audioContext.createGain();
 			this.track.buffer = e.parentNode.nextElementSibling.src.buffer;
 			this.track.connect(this.gainNode);
-			this.gainNode.connect(audios.destination);
+			this.gainNode.connect(audioContext.destination);
 			e.classList.remove("NoPlaying");
 			e.src = 'images/stop.png';
 			this.track.start();
@@ -203,7 +203,7 @@ function play(e) {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
 			this.track.stop();
-			this.audios.close();
+			//this.audios.close();
 		}
 	}
 }
