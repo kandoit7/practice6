@@ -97,14 +97,15 @@ function AllPlay(e) {
 	
 	var allCanTrack = document.querySelectorAll('canvas');
 	var playClist = [];
+	var gainList = [];
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
 			playClist[i] = audio.createBufferSource();
-			this.gain[i] = audio.createGain();
+			gainList[i] = audio.createGain();
 			playClist[i].buffer =  allCanTrack[i].src.buffer;
-			playClist[i].connect(this.gain[i]);
-			this.gain[i].connect(audio.destination);
+			playClist[i].connect(this.gainList[i]);
+			gainList[i].connect(audio.destination);
 			playClist[i].start();
 		}
 	}
