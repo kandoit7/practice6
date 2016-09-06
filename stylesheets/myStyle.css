@@ -1,10 +1,9 @@
-	@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 	header {
 		background-color: black;
 		color: white;
-		font-family: Noto Sans, sans-serif;
-		font-size: 40px;
+		font-family: Malgun Gothic;
+		font-size: 32px;
 	}
 	
 	div { 
