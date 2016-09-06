@@ -96,8 +96,8 @@ function AllPlay(e) {
 	}
 	
 	var allCanTrack = document.querySelectorAll('canvas');
-	var this.playClist = [];
-	var this.gainList = [];
+	this.playClist = [];
+	this.gainList = [];
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
