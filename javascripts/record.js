@@ -96,17 +96,17 @@ function AllPlay(e) {
 	}
 	
 	var allCanTrack = document.querySelectorAll('canvas');
-	var playClist = [];
-	var gainList = [];
+	var this.playClist = [];
+	var this.gainList = [];
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
-			playClist[i] = audio.createBufferSource();
-			gainList[i] = audio.createGain();
-			playClist[i].buffer =  allCanTrack[i].src.buffer;
-			playClist[i].connect(gainList[i]);
-			gainList[i].connect(audio.destination);
-			playClist[i].start();
+			this.playClist[i] = audio.createBufferSource();
+			this.gainList[i] = audio.createGain();
+			this.playClist[i].buffer = allCanTrack[i].src.buffer;
+			this.playClist[i].connect(this.gainList[i]);
+			this.gainList[i].connect(audio.destination);
+			this.playClist[i].start();
 		}
 	}
 }
@@ -122,11 +122,9 @@ function AllStop(e) {
 	}
 	
 	var allCanTrack = document.querySelectorAll('canvas');
-	var playClist = [];
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
-			playClist[i] = allCanTrack[i].src;
-			playClist[i].stop();
+			this.playClist[i].stop();
 		}
 	}
 }
