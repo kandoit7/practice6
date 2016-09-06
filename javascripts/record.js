@@ -26,9 +26,8 @@ function dropping(e) {
 	var h = e.toElement.height;
 	
 	//create audio node
-	var audio = new (window.AudioContext||window.webkitAudioContext)();
-	var source = audio.createBufferSource();
-	var analyser = audio.createScriptProcessor(1024,1,1);
+	var source = audioContext.createBufferSource();
+	var analyser = audioContext.createScriptProcessor(1024,1,1);
 	
 	//fill the canvas first
 	ctx.fillStyle = "555";
@@ -37,20 +36,20 @@ function dropping(e) {
 	//create the file reader to read the audio file dropped
 	var reader = new FileReader();
 	reader.onload = function(e){
-		if(audio.decodeAudioData){
+		if(audioContext.decodeAudioData){
 			//decode the audio data
-			audio.decodeAudioData(e.target.result,function(buffer){
+			audioContext.decodeAudioData(e.target.result,function(buffer){
 				source.buffer = buffer;
 				drawBuffer(w, h, ctx, buffer.getChannelData(0));
 			});
 		} else {
 			//fallback to the old API
-			source.buffer = audio.createBuffer(e.target.result,true);
+			source.buffer = audioContext.createBuffer(e.target.result,true);
 		}
 		//connect to the destination and our analyser
-		source.connect(audio.destination);
+		source.connect(audioContext.destination);
 		source.connect(analyser);
-		analyser.connect(audio.destination);
+		analyser.connect(audioContext.destination);
 		//play the song
 		//source.start();
 	}
