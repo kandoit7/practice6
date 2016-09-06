@@ -9,7 +9,7 @@
 		width: 160px;
 		height: 100px;
 		background-color: silver;
-		box-shadow: 10px 10px 10px 0px blue;
+		box-shadow: inset 0 0 5px blue;
 	}
 	
 	canvas {
@@ -17,7 +17,7 @@
 		width: 450px;
 		height: 100px;
 		background: #202020; 
-		box-shadow: 10px 10px 10px 0px blue;
+		box-shadow: inset 0 0 5px blue;
 		color: white;
 		vertical-align: bottom;
 	}
