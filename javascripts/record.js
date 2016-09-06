@@ -125,6 +125,7 @@ function AllStop(e) {
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
 			playClist[i].stop();
+			playClist[i].close();
 		}
 	}
 }
@@ -153,7 +154,7 @@ function addNewTrack(e) {
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 }
 
-//click play button -> play the recorded audio
+//click play button -> stop button the recorded audio
 function play(e) {
 	if(!this.song) {
 		this.song = new Audio();
@@ -202,6 +203,7 @@ function play(e) {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
 			this.track.stop();
+			this.track.close();
 		}
 	}
 }
