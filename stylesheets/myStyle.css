@@ -1,11 +1,10 @@
+	@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 	header {
 		background-color: black;
 		color: white;
-		font-family: 'Daum_SemiBold';
-  		font-style: normal;
-  		font-weight: normal;
-  		src: local('Daum_SemiBold'), url('http://hooney.net/lib/font/Daum_SemiBold.ttf') format('truetype');
-  		font-size: x-large;
+		font-family: Noto Sans KR, sans-serif;
+		font-size: 40;
 	}
 	
 	div { 
