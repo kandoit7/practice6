@@ -124,8 +124,9 @@ function AllStop(e) {
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
 			playClist[i].stop();
-			 e.previousElementSibling.audio.close();
 		}
+		if(i === (allCanTrack.length - 1)
+			e.previousElementSibling.audio.close();
 	}
 }
 
