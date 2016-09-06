@@ -101,11 +101,11 @@ function AllPlay(e) {
 	e.audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
-			e.playClist[i] = audio.createBufferSource();
-			e.gainList[i] = audio.createGain();
+			e.playClist[i] = e.audio.createBufferSource();
+			e.gainList[i] = e.audio.createGain();
 			e.playClist[i].buffer = allCanTrack[i].src.buffer;
 			e.playClist[i].connect(e.gainList[i]);
-			e.gainList[i].connect(audio.destination);
+			e.gainList[i].connect(e.audio.destination);
 			e.playClist[i].start();
 		}
 	}
