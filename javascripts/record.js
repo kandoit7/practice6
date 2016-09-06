@@ -89,24 +89,24 @@ function deviceSelect(e){
 function AllPlay(e) {
 	
 	var Alllink = document.querySelectorAll('a#tracklink');
-	var playlist = [];
+	e.playlist = [];
 	for( var i = 0; i < Alllink.length; i++ ) {
-		playlist[i] = new Audio(Alllink[i].href);
-		playlist[i].play();
+		e.playlist[i] = new Audio(Alllink[i].href);
+		e.playlist[i].play();
 	}
 	
 	var allCanTrack = document.querySelectorAll('canvas');
-	this.playClist = [];
-	this.gainList = [];
+	e.playClist = [];
+	e.gainList = [];
 	var audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
-			this.playClist[i] = audio.createBufferSource();
-			this.gainList[i] = audio.createGain();
-			this.playClist[i].buffer = allCanTrack[i].src.buffer;
-			this.playClist[i].connect(this.gainList[i]);
-			this.gainList[i].connect(audio.destination);
-			this.playClist[i].start();
+			e.playClist[i] = audio.createBufferSource();
+			e.gainList[i] = audio.createGain();
+			e.playClist[i].buffer = allCanTrack[i].src.buffer;
+			e.playClist[i].connect(e.gainList[i]);
+			e.gainList[i].connect(audio.destination);
+			e.playClist[i].start();
 		}
 	}
 }
@@ -115,16 +115,16 @@ function AllPlay(e) {
 function AllStop(e) {
 	
 	var Alllink = document.querySelectorAll('a#tracklink');
-	var playlist = [];
+	var playlist = e.previousElementSibling.playlist;
 	for( var i = 0; i < Alllink.length; i++ ) {
-		playlist[i] = new Audio(Alllink[i].href);
 		playlist[i].pause();
 	}
 	
 	var allCanTrack = document.querySelectorAll('canvas');
+	var playClist = e.previousElementSibling.playClist;
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
-			this.playClist[i].stop();
+			playClist[i].stop();
 		}
 	}
 }
