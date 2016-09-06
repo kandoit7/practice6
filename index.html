@@ -4,9 +4,78 @@
 		<meta charset="utf-8">
 		<title>JM-Multi Track</title>
 		<link href="stylesheets/myStyle.css" rel="stylesheet" type="text/css">
+		<style>
+			b { font-weight: bold; }
+		
+			.key { position: absolute; font-family: Helvetica; font-weight: 100; font-size: 12px;
+				border: 1px solid rgba(32,32,32,0.2);
+				border-radius: 0px 0px 5px 5px;
+				cursor:pointer;
+				box-shadow: 0px 5px 1px rgba(32,32,32,0.2);
+				-webkit-transition: margin 0.05s ease, background-color 0.05s ease, box-shadow 0.05s ease; }
+			
+			.key:hover { background-color: rgb(255,192,32); }
+				
+			.key .label { position: absolute; bottom: 5px; text-align: center; left: 0px; right: 0px; }
+			
+			.black { background-color: rgb(32,32,32); color: #ffffff; z-index: 1; text-shadow: 0px -1px 1px rgba(255,255,255,0.5); }
+			
+			.white { background-color: #ffffff; color: rgb(32,32,32); z-index: 0; text-shadow: 0px 1px 1px rgba(32,32,32,0.5); }
+			
+			.title { text-shadow: 0px 1px 1px rgba(32,32,32,0.2); font-size: 40px; font-weight: bold; font-family: Helvetica; padding: 10px; text-align: center; }
+			
+			.keyboard-options { margin: 5px auto; width: auto; text-align: center; font-size: 12px; font-weight: 200; padding:10px; }
+			
+			.keyboard-holder { margin: 5px auto; height: 200px; position:relative; user-select:none; -webkit-user-select:none;-moz-user-select:none;-o-user-select:none; }
+			
+		</style>
+		<script src='javascripts/Synthmain.js'></script>
+		<script src='javascripts/SynthView.js'></script>
 	</head>
 	<body>
-		<iframe width='1000px' height='500px' frameborder='0' src='record.html'></iframe>
-		<iframe width='1000px' height='350px' frameborder='0' src='Synth.html' ></iframe>
+		<div id="AddNewTrack">
+			<img class="plusImg" src="images/plus.png" onclick="addNewTrack(this);">
+			<input type="button" value="AllPlay" onclick="AllPlay(this);"/>
+			<input type="button" value="Allstop" onclick="AllStop(this);"/>
+			<input type='checkbox' id='deviceSF' onclick='deviceSelect();'>
+			<input type='button' id='allRecord' onclick='allRecord();'>
+		</div>
+		
+		<div id="track1">
+			<span class='track'>track1
+				<img src='images/play.png' class='NoPlaying' onclick='play(this);'/>
+				<img id="record" class='recordB' src="images/recordOff.png" onclick="toggleRecording(this);">
+				<a id='down'></a>
+			</span>
+			<canvas id="crecord" class='record' ondrop='dropping(event)' ondragover='allowDrop(event)' draggable='true'></canvas>
+			<select id="change" hidden></select>
+			<a></a>
+		</div>
+		
+		<script src="javascripts/adapter.js"></script>
+    		<script src="javascripts/audiodisplay.js"></script>
+    		<script src="javascripts/recorderjs/recorder.js"></script>
+		<script src="javascripts/record.js"></script>
+		
+		<div>
+			<select ID="sound">
+				<option value="0" selected>Keyboard</option>
+				<option value="1">Organ</option>
+				<option value="2">Acoustic Guitar</option>
+				<option value="3">EDM, bro!</option>
+			</select>
+			<span class="keyboard-options">
+				Range [C<span ID="OCTAVE_LOWER">3</span>-B<span ID="OCTAVE_UPPER">5</span>]
+				<input type="button" ID="-_OCTAVE" value="-" />
+				<input type="button" ID="+_OCTAVE" value="+" /><br />
+				<i>(Use left/right arrows to adjust with keyboard)</i>
+			</span>
+			<div ID="keyboard" class="keyboard-holder"></div>
+			
+		</div>
+		<script type="text/javascript">
+			var a = new AudioSynthView();
+			a.draw();
+		</script>
 	</body>
 </html>
