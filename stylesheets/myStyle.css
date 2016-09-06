@@ -5,6 +5,8 @@
 	
 	.track {
 		margin: 0px;
+		border: 0px;
+		padding: 0px;
 		display: inline-block;
 		width: 160px;
 		height: 100px;
@@ -14,6 +16,8 @@
 	
 	canvas {
 		margin: 0px;
+		border: 0px;
+		padding: 0px;
 		width: 450px;
 		height: 100px;
 		background: #202020; 
