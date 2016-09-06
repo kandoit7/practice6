@@ -1,8 +1,11 @@
 	header {
 		background-color: black;
 		color: white;
-		font: Bitstream Vera Sans Bold;
-		font-size: large;
+		font-family: 'Daum_SemiBold';
+  		font-style: normal;
+  		font-weight: normal;
+  		src: local('Daum_SemiBold'), url('http://hooney.net/lib/font/Daum_SemiBold.ttf') format('truetype');
+  		font-size: x-large;
 	}
 	
 	div { 
