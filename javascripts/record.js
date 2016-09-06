@@ -50,12 +50,9 @@ function dropping(e) {
 		source.connect(audioContext.destination);
 		source.connect(analyser);
 		analyser.connect(audioContext.destination);
-		//play the song
-		//source.start();
 	}
 	//read the file
 	reader.readAsArrayBuffer(e.dataTransfer.files[0]);
-	//var playbtn = document.getElementById(e.toElement);
 	e.target.src = source;
 }
 
@@ -97,7 +94,6 @@ function AllPlay(e) {
 	var allCanTrack = document.querySelectorAll('canvas');
 	e.playClist = [];
 	e.gainList = [];
-	//e.audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
 			e.playClist[i] = audioContext.createBufferSource();
@@ -125,8 +121,6 @@ function AllStop(e) {
 		if(allCanTrack[i].src) {
 			playClist[i].stop();
 		}
-		//if(i === (allCanTrack.length - 1)
-		//	e.previousElementSibling.audio.close();
 	}
 }
 
@@ -154,7 +148,7 @@ function addNewTrack(e) {
 	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 }
 
-//click play button -> stop button the recorded audio
+//To change, click play button -> stop button the recorded audio
 function play(e) {
 	if(!this.song) {
 		this.song = new Audio();
@@ -190,7 +184,6 @@ function play(e) {
 	} else {
 		
 		if(e.classList.contains("NoPlaying")){
-			//this.audios = new (window.AudioContext||window.webkitAudioContext)();
 			this.track = audioContext.createBufferSource();
 			this.gainNode = audioContext.createGain();
 			this.track.buffer = e.parentNode.nextElementSibling.src.buffer;
@@ -203,7 +196,6 @@ function play(e) {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
 			this.track.stop();
-			//this.audios.close();
 		}
 	}
 }
@@ -224,7 +216,6 @@ function toggleRecording( e ) {
 			var ci = e.parentNode.nextElementSibling.id;
    			var canvas = document.getElementById(ci);
 			drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-			//e.parentNode.src.exportWAV(doneEncoding);
 			e.parentNode.parentNode.src.exportWAV(function(blob) {
 				var good = Recorder.setupDownload( blob );
 				var replace = e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling;
