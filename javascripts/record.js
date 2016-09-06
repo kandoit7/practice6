@@ -104,7 +104,7 @@ function AllPlay(e) {
 			playClist[i] = audio.createBufferSource();
 			gainList[i] = audio.createGain();
 			playClist[i].buffer =  allCanTrack[i].src.buffer;
-			playClist[i].connect(this.gainList[i]);
+			playClist[i].connect(gainList[i]);
 			gainList[i].connect(audio.destination);
 			playClist[i].start();
 		}
