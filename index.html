@@ -10,25 +10,26 @@
 	</head>
 	<body>
 		<header>JM Web Digital Audio Workstation </header>
-		<div id="AddNewTrack">
-			<img class="plusImg" src="images/plus.png" onclick="addNewTrack(this);">
-			<input type="button" value="AllPlay" onclick="AllPlay(this);"/>
-			<input type="button" value="Allstop" onclick="AllStop(this);"/>
-			<input type='checkbox' id='deviceSF' onclick='deviceSelect();'>
-			<input type='button' id='allRecord' onclick='allRecord();'>
-		</div>
-		
-		<div id="track1">
-			<span class='track'>track1
-				<img src='images/play.png' class='NoPlaying' onclick='play(this);'/>
-				<img id="record" class='recordB' src="images/recordOff.png" onclick="toggleRecording(this);">
-				<a id='down'></a>
-			</span>
-			<canvas id="crecord" class='record' ondrop='dropping(event)' ondragover='allowDrop(event)' draggable='true'></canvas>
-			<select id="change" hidden></select>
-			<a></a>
-		</div>
-		
+		<section>
+			<div id="AddNewTrack">
+				<img class="plusImg" src="images/plus.png" onclick="addNewTrack(this);">
+				<input type="button" value="AllPlay" onclick="AllPlay(this);"/>
+				<input type="button" value="Allstop" onclick="AllStop(this);"/>
+				<input type='checkbox' id='deviceSF' onclick='deviceSelect();'>
+				<input type='button' id='allRecord' onclick='allRecord();'>
+			</div>
+			
+			<div id="track1">
+				<span class='track'>track1
+					<img src='images/play.png' class='NoPlaying' onclick='play(this);'/>
+					<img id="record" class='recordB' src="images/recordOff.png" onclick="toggleRecording(this);">
+					<a id='down'></a>
+				</span>
+				<canvas id="crecord" class='record' ondrop='dropping(event)' ondragover='allowDrop(event)' draggable='true'></canvas>
+				<select id="change" hidden></select>
+				<a></a>
+			</div>
+		</section>
 		<script src="javascripts/adapter.js"></script>
     		<script src="javascripts/audiodisplay.js"></script>
     		<script src="javascripts/recorderjs/recorder.js"></script>
