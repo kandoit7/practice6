@@ -98,7 +98,7 @@ function AllPlay(e) {
 	var allCanTrack = document.querySelectorAll('canvas');
 	e.playClist = [];
 	e.gainList = [];
-	var audio = new (window.AudioContext||window.webkitAudioContext)();
+	e.audio = new (window.AudioContext||window.webkitAudioContext)();
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
 			e.playClist[i] = audio.createBufferSource();
@@ -125,7 +125,7 @@ function AllStop(e) {
 	for( var i = 0; i < allCanTrack.length; i++ ) {
 		if(allCanTrack[i].src) {
 			playClist[i].stop();
-			playClist[i].close();
+			 e.previousElementSibling.audio.close();
 		}
 	}
 }
@@ -190,7 +190,7 @@ function play(e) {
 	} else {
 		
 		if(e.classList.contains("NoPlaying")){
-			var audios = new (window.AudioContext||window.webkitAudioContext)();
+			this.audios = new (window.AudioContext||window.webkitAudioContext)();
 			this.track = audios.createBufferSource();
 			this.gainNode = audios.createGain();
 			this.track.buffer = e.parentNode.nextElementSibling.src.buffer;
@@ -203,7 +203,7 @@ function play(e) {
 			e.classList.add("NoPlaying");
 			e.src = 'images/play.png';
 			this.track.stop();
-			this.track.close();
+			this.audios.close();
 		}
 	}
 }
