@@ -95,4 +95,4 @@
 	
 	.keyboard-holder { margin: 5px auto; height: 200px; position:relative; user-select:none; -webkit-user-select:none;-moz-user-select:none;-o-user-select:none; }
 	
-	.instrument { width: 890px; background-color: silver; }
+	.instrument { background-color: silver; }
