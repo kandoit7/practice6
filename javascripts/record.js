@@ -129,6 +129,7 @@ function addNewTrack(e) {
 	var newDiv = document.createElement('div');
 	
 	newDiv.id = "track"+tagIndex;
+	newDiv.class = "bar";
 	var node = e.parentNode.parentNode;
 	node.insertBefore(newDiv, node.childNodes[7+childIndex]);
 	
