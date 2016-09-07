@@ -23,8 +23,10 @@
 		display: inline-block;
 		width: 160px;
 		height: 100px;
-		background-color: silver;
+		background-color: black;
 		box-shadow: inset 0 0 5px blue;
+		font-family: Impact;
+		color: white;
 	}
 	
 	canvas {
@@ -33,7 +35,7 @@
 		padding: 0px;
 		width: 680px;
 		height: 100px;
-		background: silver; /*#202020; */
+		background: black; /*#202020; */
 		box-shadow: inset 0 0 5px blue;
 		color: white;
 		vertical-align: bottom;
