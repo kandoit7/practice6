@@ -96,6 +96,6 @@
 	
 	.keyboard-options { margin: 5px auto; width: auto; text-align: center; font-size: 12px; font-weight: 200; padding:10px; }
 	
-	.keyboard-holder { height: 240px; position:relative; user-select:none; -webkit-user-select:none;-moz-user-select:none;-o-user-select:none; }
+	.keyboard-holder { height: 235px; position:relative; user-select:none; -webkit-user-select:none;-moz-user-select:none;-o-user-select:none; }
 	
 	.instrument { background-color: silver; }
