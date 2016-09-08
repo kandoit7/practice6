@@ -23,7 +23,7 @@ function mute(e) {
 			e.classList.add("muteOff");
 			e.src = 'images/muteoff.png';
 		}
-		
+	}
 	
 	if(!e.parentNode.nextElementSibling.src){
 		console.log("no audio Source");
