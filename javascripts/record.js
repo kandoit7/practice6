@@ -11,6 +11,32 @@ var childIndex = 0;
 
 var deviceSF = document.getElementById('deviceSF');
 
+//mute
+function mute(e) {
+
+	if(e.classList.contains("muteOff")){
+		e.classList.remove("muteOff");
+		e.src = 'images/muteon.png';
+	} else {
+		e.classList.add("muteOff");
+		e.src = 'images/muteoff.png';
+	}
+	
+	
+	if(!e.parentNode.nextElementSibling.src){
+		console.log("no audio Source");
+	} else {
+		
+		if(e.classList.contains("muteOff")){
+			e.classList.remove("muteOff");
+			e.src = 'images/muteon.png';
+		} else {
+			e.classList.add("muteOff");
+			e.src = 'images/muteoff.png';
+		}
+	}
+}
+
 //drag
 function allowDrop(ev) {
 	ev.preventDefault();
