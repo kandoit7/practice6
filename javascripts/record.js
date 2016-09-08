@@ -13,15 +13,17 @@ var deviceSF = document.getElementById('deviceSF');
 
 //mute
 function mute(e) {
-
-	if(e.classList.contains("muteOff")){
-		e.classList.remove("muteOff");
-		e.src = 'images/muteon.png';
+	if(e.previousElementSibling.href === ""){
+		console.log("no recorded audio");
 	} else {
-		e.classList.add("muteOff");
-		e.src = 'images/muteoff.png';
-	}
-	
+		if(e.classList.contains("muteOff")){
+			e.classList.remove("muteOff");
+			e.src = 'images/muteon.png';
+		} else {
+			e.classList.add("muteOff");
+			e.src = 'images/muteoff.png';
+		}
+		
 	
 	if(!e.parentNode.nextElementSibling.src){
 		console.log("no audio Source");
@@ -178,6 +180,7 @@ function addNewTrack(e) {
 function play(e) {
 	if(!this.song) {
 		this.song = new Audio();
+		console.log(this.song);
 	} else {
 		if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 			console.log("no recorded audio");
