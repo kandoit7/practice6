@@ -1,7 +1,6 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext) ();
 
 //var track = null;
-function recordTest () {};
 
 //var audioRecorder = null;
 var test1 = null;
@@ -320,16 +319,6 @@ function handleError(error) {
 }
 
 //Get Input Devices
+//page load then Start function
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
-//URL of recorded audio && create <a> Element
-//but this function not using
-/*
-function doneEncoding( blob ) {
-    var good = Recorder.setupDownload( blob );
-    var link = document.createElement("a");
-    link.href = good;
-    link.download =  "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav"  || 'output.wav';
-    recIndex++;
-}
-*/
