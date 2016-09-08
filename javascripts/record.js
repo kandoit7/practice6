@@ -180,7 +180,7 @@ function addNewTrack(e) {
 function play(e) {
 	if(!this.song) {
 		this.song = new Audio();
-		console.log(this.song);
+		console.log(this.song.parentNode);
 	} else {
 		if(e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.href === "") {
 			console.log("no recorded audio");
