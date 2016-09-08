@@ -17,7 +17,6 @@
 				<input type="button" value="Allstop" onclick="AllStop(this);"/>
 				<input type='checkbox' id='deviceSF' onclick='deviceSelect();'>
 				<input type='button' id='allRecord' onclick='allRecord();'>
-				<img class='muteOff' src='images/muteoff.png' onclick='mute(this);'>
 			</div>
 			
 			<div id="track1" class='bar'>
@@ -25,6 +24,7 @@
 					<img src='images/play.png' class='NoPlaying' onclick='play(this);'/>
 					<img id="record" class='recordB' src="images/recordOff.png" onclick="toggleRecording(this);">
 					<a id='down'></a>
+					<img class='muteOff' src='images/muteoff.png' onclick='mute(this);'>
 				</span>
 				<canvas id="crecord" class='record' ondrop='dropping(event)' ondragover='allowDrop(event)' draggable='true'></canvas>
 				<select id="change" hidden></select>
