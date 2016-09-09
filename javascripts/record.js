@@ -19,9 +19,11 @@ function mute(e) {
 		if(e.classList.contains("muteOff")){
 			e.classList.remove("muteOff");
 			e.src = 'images/muteon.png';
+			this.song.muted = true;
 		} else {
 			e.classList.add("muteOff");
 			e.src = 'images/muteoff.png';
+			this.song.muted = false;
 		}
 	}
 	
