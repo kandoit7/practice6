@@ -166,6 +166,7 @@ function addNewTrack(e) {
 	  	+ "		<img src='images/play.png' onclick='play(this);'/> "
 	  	+ "		<img id='record" + tagIndex + "'" + "class='recordB' src='images/recordOff.png' onclick='toggleRecording(this);'>"
 	  	+ "		<a id='down'></a>"
+	  	+ "		<img class='muteOff' src='images/muteoff.png' onclick='mute(this);'>"
 		+ "	</span>"
 		+ "	<canvas id='crecord" + tagIndex + "'" + "class='record" + tagIndex + "'" + "ondrop='dropping(event)' ondragover='allowDrop(event)'></canvas>"
 		+ "	<select id='change'></select>"
